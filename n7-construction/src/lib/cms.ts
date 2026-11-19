@@ -7,7 +7,7 @@ import { SITE_CONFIG } from "@/config/site";
 
 export const ADMIN_COOKIE = "n7_admin_session";
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR = process.env.N7_DATA_DIR || path.join(process.cwd(), "data");
 const CMS_FILE = path.join(DATA_DIR, "cms.json");
 
 
