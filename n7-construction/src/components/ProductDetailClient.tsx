@@ -34,6 +34,7 @@ import {
 import { useStore } from "@/context/StoreContext";
 import { formatPrice, hasPrice } from "@/lib/format";
 import { ScrollRail } from "@/components/ScrollRail";
+import { BrandLogo } from "./BrandLogo";
 import { LightingSeriesComparison } from "./LightingSeriesComparison";
 
 export function ProductDetailClient({
@@ -210,7 +211,7 @@ export function ProductDetailClient({
       </header>
       <button type="button" onClick={()=>window.print()} className="no-print inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-bold ring-1 ring-ink/10"><FileText className="h-4 w-4" />Печать / PDF характеристик</button>
       <article className="n7-print-sheet hidden">
-        <p>N7 CONSTRUCTION · Лист каталога</p><h1>{product.name}</h1><p>Арт. {product.sku} · {product.subcategoryLabel}</p>
+        <BrandLogo theme="light"/><p>Техническое приложение к запросу КП</p><h1>{product.name}</h1><p>Арт. {product.sku} · {product.subcategoryLabel}</p>
         <p>{product.summary}</p><dl>{product.specs.map((s,i)=><div key={i}><dt>{s.label}</dt><dd>{s.value}</dd></div>)}</dl>
         <p>Минимальный заказ: {product.minOrder} {product.unit}. Шаг заказа: {product.stepQty} {product.unit}.</p>
         <small>Справочный лист каталога. Не заменяет паспорт производителя или коммерческое предложение.</small>

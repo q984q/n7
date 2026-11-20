@@ -1,4 +1,5 @@
 "use client";
+import { QuoteLetterhead } from "@/components/QuoteLetterhead";
 import { OfflineQuote } from "@/components/OfflineQuote";
 
 import React, { useRef, useState } from "react";
@@ -229,6 +230,7 @@ export default function CartPage() {
               onSubmit={handleSubmit}
               className="lg:col-span-5 lg:sticky lg:top-24 rounded-[28px] bg-white p-6 ring-1 ring-ink/[0.08] shadow-card space-y-3.5"
             >
+              <QuoteLetterhead customer={name} city={city} note={message}/>
               <div className="flex items-center justify-between border-b border-ink/[0.08] pb-3.5">
                 <span className="text-xs font-bold text-ink/55">
                   Итого ({cart.length} поз.):
