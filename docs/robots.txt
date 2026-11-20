@@ -1,0 +1,8 @@
+User-Agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /cart
+
+Host: https://q984q.github.io/n7
+Sitemap: https://q984q.github.io/n7/sitemap.xml
