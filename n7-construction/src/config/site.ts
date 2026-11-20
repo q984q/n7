@@ -1,3 +1,4 @@
+import { PRODUCTS } from "@/data/products";
 export const SITE_CONFIG = {
   name: "N7 CONSTRUCTION",
   legalName: "N7 CONSTRUCTION",
@@ -23,7 +24,7 @@ export const SITE_CONFIG = {
   workingHours: "",
 
   stats: [
-    { value: 72, suffix: "", label: "позиций в каталоге" },
+    { value: PRODUCTS.length, suffix: "", label: "позиций в каталоге" },
     { value: 45, suffix: "", label: "LED-прожекторов N7" },
     { value: 165, suffix: " лм/Вт", label: "серия N7 TITAN" },
     { value: 20, suffix: "×10 м", label: "падел-корты PD001–008" },

@@ -26,7 +26,7 @@ const DIRECTION_CARDS = [
   {
     slug: "flooring",
     title: "Спортивные покрытия",
-    meta: "19 серий",
+    meta: `Моделей: ${PRODUCTS.filter(p => p.category === "flooring").length}`,
     tags: "Залы, стадионы, уличные корты и бассейны",
     image: "/images/indoor-arena.jpg",
     style: "photo" as const,

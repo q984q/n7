@@ -1,3 +1,4 @@
+import { expandFlooring } from "./flooring-models";
 export type {
   ProductCategory,
   ProductSubcategory,
@@ -81,8 +82,8 @@ export const CATEGORIES: CategoryInfo[] = [
 ];
 
 export const PRODUCTS: Product[] = [
-  ...PVC_PARQUET_PRODUCTS,
-  ...MODULAR_SPECIAL_PRODUCTS,
+  ...PVC_PARQUET_PRODUCTS.flatMap(expandFlooring),
+  ...MODULAR_SPECIAL_PRODUCTS.flatMap(expandFlooring),
   ...LIGHTING_PADEL_PRODUCTS,
 ];
 

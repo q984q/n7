@@ -166,7 +166,7 @@ const CHIPS_BY_SKU: Record<string, string[]> = {
 };
 
 export function getProductCardChips(product: Product): string[] {
-  if (product.sku in CHIPS_BY_SKU) return CHIPS_BY_SKU[product.sku];
+  if (product.variants?.length !== 0 && product.sku in CHIPS_BY_SKU) return CHIPS_BY_SKU[product.sku];
 
   if (product.category === "lighting" && product.photometry) {
     const chips: string[] = [
@@ -327,7 +327,7 @@ export function getProductHeroMetrics(
     ],
   };
 
-  if (product.sku in CUSTOM) return CUSTOM[product.sku];
+  if (product.variants?.length !== 0 && product.sku in CUSTOM) return CUSTOM[product.sku];
 
   const fallback = product.specs
     .slice(0, product.warrantyYears > 0 ? 2 : 3)
