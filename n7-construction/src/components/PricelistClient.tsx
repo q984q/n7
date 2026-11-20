@@ -425,7 +425,7 @@ export function PricelistClient() {
           type="button"
           onClick={() =>
             openLeadModal({
-              title: "Расчёт по прайсу",
+              title: "Расчёт по каталогу",
               source: "Страница прайса",
             })
           }

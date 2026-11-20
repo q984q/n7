@@ -210,6 +210,7 @@ export function ProductDetailClient({
         <p className="mt-2 text-ink-muted">{purpose}</p>
       </header>
       <button type="button" onClick={()=>window.print()} className="no-print inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-bold ring-1 ring-ink/10"><FileText className="h-4 w-4" />Печать / PDF характеристик</button>
+      <button type="button" className="no-print min-h-11 px-4 text-sm font-bold underline" onClick={()=>openLeadModal({title:"Документы и фото модели",source:`Карточка ${product.sku}`,contextSummary:`${product.shortName} · ${product.sku}. Прошу предоставить паспорт производителя и фото реального образца до заказа.`})}>Запросить паспорт и фото образца</button>
       <article className="n7-print-sheet hidden">
         <BrandLogo theme="light"/><p>Техническое приложение к запросу КП</p><h1>{product.name}</h1><p>Арт. {product.sku} · {product.subcategoryLabel}</p>
         <p>{product.summary}</p><dl>{product.specs.map((s,i)=><div key={i}><dt>{s.label}</dt><dd>{s.value}</dd></div>)}</dl>
@@ -299,6 +300,7 @@ export function ProductDetailClient({
             <h2 className="text-xl font-bold tracking-tight">Конфигурация и заказ</h2>
           </div>
 
+          <Link href="/contacts#project" className="block rounded-xl bg-white p-4 font-bold text-ink ring-1 ring-ink/10">Не знаю модель — подобрать по объекту →</Link>
           {/* Переключатель мощностей серии (для прожекторов N7) */}
           {seriesSiblings.length > 1 && (
             <div className="rounded-[24px] bg-white p-4 ring-1 ring-ink/[0.07] space-y-3">

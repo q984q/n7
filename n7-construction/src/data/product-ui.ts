@@ -143,9 +143,9 @@ export function getProductPurpose(product: Product): string {
 const CHIPS_BY_SKU: Record<string, string[]> = {
   "Y-6170": ["7,0 мм", "Шир. 1,8 м", "6 цветов"],
   Y14155S: ["5,5 мм", "1,8 × 15–25 м", "ITTF"],
-  "A-9180": ["8,0 мм", "1,8 × 15 м", "4 цвета"],
-  "A-9160": ["6,0 мм", "1,8 × 15 м", "5 цветов"],
-  "A-65160": ["6,0 мм", "1,8 × 15 м", "Под клён"],
+  "A-9180": ["8,0 мм", "1,8 м · длина под заказ", "4 цвета"],
+  "A-9160": ["6,0 мм", "1,8 м · длина под заказ", "5 цветов"],
+  "A-65160": ["6,0 мм", "1,8 м · длина под заказ", "Под клён"],
   "PVC-2MM": ["2,0 мм", "Рулон 2 × 20 м"],
   "PVC-CUSTOM": ["2–8 мм", "Свой дизайн"],
   "WOOD-FIXED": ["Аморт. ≥ 53%", "6 пород", "Класс E1"],
@@ -188,7 +188,7 @@ export function getProductCardChips(product: Product): string[] {
 
   return product.specs
     .slice(0, 2)
-    .map((s) => (s.value.length > 18 ? s.value.split(/[•(,]/)[0].trim() : s.value))
+    .map((s) => (s.value.length > 18 ? s.value.split(/[•(]|,\s+/)[0].trim() : s.value))
     .filter(Boolean);
 }
 
@@ -227,17 +227,17 @@ export function getProductHeroMetrics(
     ],
     "A-9180": [
       { label: "Толщина", value: "8,0 мм" },
-      { label: "Рулон", value: "1,8 × 15 м" },
+      { label: "Рулон", value: "1,8 м · длина под заказ" },
       { label: "Цвета", value: "4 цвета · фактура Gem" },
     ],
     "A-9160": [
       { label: "Толщина", value: "6,0 мм" },
-      { label: "Рулон", value: "1,8 × 15 м" },
+      { label: "Рулон", value: "1,8 м · длина под заказ" },
       { label: "Цвета", value: "5 цветов · фактура Gem" },
     ],
     "A-65160": [
       { label: "Толщина", value: "6,0 мм" },
-      { label: "Рулон", value: "1,8 × 15 м" },
+      { label: "Рулон", value: "1,8 м · длина под заказ" },
       { label: "Декор", value: "Текстура клёна" },
     ],
     "PVC-2MM": [

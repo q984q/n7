@@ -88,14 +88,14 @@ export default function HomePage() {
                 href="/catalog"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-track px-7 text-xs font-extrabold uppercase tracking-wider text-white shadow-glow hover:bg-[#e54d2b] active:scale-[0.98] transition-all"
               >
-                Подобрать решение
+                Посмотреть товары
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/pricelist"
+                href="/contacts#project"
                 className="inline-flex h-12 items-center justify-center rounded-full bg-white/10 px-6 text-xs font-bold text-white ring-1 ring-white/20 backdrop-blur-md hover:bg-white/20 transition-colors"
               >
-                Прайс и CSV
+                Подобрать под объект
               </Link>
               <a
                 href="#directions"

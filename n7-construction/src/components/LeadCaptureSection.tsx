@@ -63,7 +63,7 @@ export function LeadCaptureSection({
   };
 
   return (
-    <section className="py-12 sm:py-20 bg-canvas">
+    <section id="project" className="scroll-mt-24 py-12 sm:py-20 bg-canvas">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-[32px] bg-ink p-6 sm:p-10 lg:p-12 text-white shadow-elevated">
           <div className="grid gap-8 lg:grid-cols-12 items-center">

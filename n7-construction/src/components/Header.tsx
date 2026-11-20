@@ -20,7 +20,7 @@ const NAV_ITEMS = [
   { label: "Покрытия", href: "/catalog/category/flooring" },
   { label: "Падел", href: "/catalog/category/infrastructure" },
   { label: "Свет N7", href: "/catalog/category/lighting" },
-  { label: "Прайс", href: "/pricelist" },
+  { label: "Скачать каталог", href: "/pricelist" },
   { label: "Контакты", href: "/contacts" },
 ];
 

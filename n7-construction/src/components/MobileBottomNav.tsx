@@ -190,7 +190,7 @@ export function MobileBottomNav() {
                 }`}
               >
                 <FileSpreadsheet className="h-3.5 w-3.5 shrink-0 text-track" />
-                <span className="truncate">Спецификация</span>
+                <span className="truncate">Скачать каталог</span>
               </Link>
 
               <Link

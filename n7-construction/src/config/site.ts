@@ -18,7 +18,7 @@ export const SITE_CONFIG = {
   bik: "",
   phone: "",
   phoneRaw: "",
-  whatsappNumber: "",
+  whatsappNumber: process.env.NEXT_PUBLIC_N7_WHATSAPP || "",
   email: "",
   address: "",
   workingHours: "",

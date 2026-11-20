@@ -167,7 +167,7 @@ export default async function ContactsPage() {
         ].map(([title,body])=><div key={title} className="rounded-2xl bg-white p-5"><h3 className="font-bold">{title}</h3><p className="mt-2 text-sm text-ink-muted">{body}</p></div>)}</div>
       </section>
       <LeadCaptureSection
-        title="Отправить запрос на расчёт"
+        title="Подбор под ваш объект"
         subtitle="Оставьте телефон или WhatsApp — можно сразу прикрепить план зала, смету или техническое задание."
         source="Страница контактов и заявки"
       />
