@@ -34,6 +34,7 @@ import {
 import { useStore } from "@/context/StoreContext";
 import { formatPrice, hasPrice } from "@/lib/format";
 import { ScrollRail } from "@/components/ScrollRail";
+import { LightingSeriesComparison } from "./LightingSeriesComparison";
 
 export function ProductDetailClient({
   product: initialProduct,
@@ -342,6 +343,8 @@ export function ProductDetailClient({
                   );
                 })}
               </ScrollRail>
+
+              <LightingSeriesComparison product={product} siblings={seriesSiblings} />
 
               {familySeriesLinks.length > 0 && (
                 <div className="border-t border-ink/[0.06] pt-2.5">
