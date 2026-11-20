@@ -22,7 +22,7 @@ export function buildMetadata({
   noIndex = false,
 }: BuildMetaInput): Metadata {
   const canonicalUrl = `${SITE_CONFIG.url}${path === "/" ? "" : path}`;
-  const fullImage = image.startsWith("http") ? image : `${SITE_CONFIG.url}${image}`;
+  const fullImage = image.startsWith("http") ? image : new URL(image, SITE_CONFIG.url).href;
 
   const defaultKeywords = [
     "N7 CONSTRUCTION",
@@ -96,7 +96,7 @@ export function getOrganizationSchema() {
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.url,
     logo: `${SITE_CONFIG.url}/icon.svg`,
-    image: `${SITE_CONFIG.url}/images/padel-court.jpg`,
+    image: new URL("/images/padel-court.jpg", SITE_CONFIG.url).href,
     description:
       "Каталог спортивных и коммерческих покрытий, падел-кортов 20×10 м (PD001–PD008) и 45 моделей модульных светодиодных прожекторов N7 TITAN, VEKTOR, KRON и KORT (100–1250 Вт).",
   };
@@ -147,7 +147,7 @@ export function getProductSchema(product: Product) {
     name: product.name,
     sku: product.sku,
     mpn: product.sku,
-    image: [`${SITE_CONFIG.url}${product.image}`],
+    image: [new URL(product.image, SITE_CONFIG.url).href],
     description: product.seoDescription,
     category: product.subcategoryLabel,
     brand: {

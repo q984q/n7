@@ -59,6 +59,21 @@ export function CatalogBrowser({
   const [query, setQuery] = useState(initialQuery);
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_STEP);
 
+  // Pages exports one catalog HTML for every query string. Read the URL after hydration.
+  React.useEffect(() => {
+    if (process.env.NEXT_PUBLIC_STATIC_SITE !== '1') return;
+    const sync = () => {
+      const params = new URLSearchParams(window.location.search);
+      setQuery(params.get('q') || '');
+      const id = params.get('sport');
+      setSport(SPORT_FILTERS.some(item => item.id === id) ? id! : 'all');
+      setVisibleCount(PAGE_STEP);
+    };
+    sync();
+    window.addEventListener('popstate', sync);
+    return () => window.removeEventListener('popstate', sync);
+  }, []);
+
   const isLightingScope =
     category === "lighting" ||
     (subcategory !== "all" && subcategory.startsWith("led-"));
