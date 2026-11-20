@@ -96,7 +96,7 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="flex flex-1 flex-col p-5">
         {/* Понятное назначение для клиента */}
         <div className="text-xs font-semibold text-track-dark border-l-2 border-track pl-2 truncate">
-          {purpose}
+          {purpose}{product.image.endsWith("-studio.jpg") ? " · Визуализация" : ""}
         </div>
 
         <Link

@@ -81,11 +81,27 @@ export const CATEGORIES: CategoryInfo[] = [
   },
 ];
 
+// Studio illustrations are linked by exact SKU, never inherited by sibling models.
+const studio: Record<string,string> = {
+  'Y-6170': '/images/products/y6170-studio.jpg',
+  'A-65160': '/images/products/a65160-studio.jpg',
+  E630: '/images/products/e630-studio.jpg',
+};
+function catalogPresentation(p: Product): Product {
+  const image = studio[p.sku];
+  const title = p.category !== 'flooring' ? p.shortName : p.shortName
+    .replace(/^Модуль /, 'Спортивная плитка ')
+    .replace(/^ПВХ A-65160 Клён/, 'Спортивное ПВХ-покрытие A-65160 «Клён»')
+    .replace(/^Спортивный ПВХ Y-\*6170/, 'Спортивное ПВХ-покрытие Y-6170')
+    .replace(/^Паркет · /, 'Спортивный паркет · ');
+  return { ...p, shortName: title, ...(title !== p.shortName ? {seoTitle:`${title} | N7 Construction`} : {}),
+    ...(image ? { image, gallery:[...new Set([image,p.image,...p.gallery])] } : {}) };
+}
 export const PRODUCTS: Product[] = [
   ...PVC_PARQUET_PRODUCTS.flatMap(expandFlooring),
   ...MODULAR_SPECIAL_PRODUCTS.flatMap(expandFlooring),
   ...LIGHTING_PADEL_PRODUCTS,
-];
+].map(catalogPresentation);
 
 export function getProductBySlug(slug: string): Product | undefined {
   return PRODUCTS.find((p) => p.slug === slug);

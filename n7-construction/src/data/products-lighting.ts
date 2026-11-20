@@ -543,7 +543,7 @@ function buildLightingProducts(): Product[] {
           : `${w} Вт, ${efficacy}`;
 
       const name = `Светодиодный прожектор ${modelTitle} (${nameSuffix})`;
-      const shortName = `${modelTitle} (${w} Вт)`;
+      const shortName = `Прожектор ${s.name} · ${w} Вт`;
 
       const badge = s.dimming
         ? `${w} Вт • ${s.dimming}`

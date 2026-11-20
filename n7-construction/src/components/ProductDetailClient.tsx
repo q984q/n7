@@ -201,7 +201,7 @@ export function ProductDetailClient({
     <div className="space-y-6 sm:space-y-8">
       <header className="border-t-2 border-ink pt-4">
         <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs font-semibold uppercase tracking-wider">
-          <span className="border-l-4 border-track pl-3 text-track-dark">{product.subcategoryLabel}</span>
+          <span className="border-l-4 border-track pl-3 text-track-dark">N7 Construction / {product.subcategoryLabel}</span>
           <span className="text-ink-muted">Арт. {product.sku}</span>
         </div>
         <h1 className="mt-5 max-w-5xl text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">{product.shortName}</h1>
@@ -240,6 +240,7 @@ export function ProductDetailClient({
                   : "object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               }
             />
+            {activeImg.endsWith('-studio.jpg') && <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-ink">Визуализация модели</span>}
             <span className="absolute right-4 bottom-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-ink/70 ring-1 ring-ink/10 backdrop-blur-md group-hover:bg-ink group-hover:text-white transition-colors">
               <Maximize2 className="h-4 w-4" />
             </span>
