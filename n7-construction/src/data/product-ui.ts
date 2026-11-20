@@ -208,8 +208,8 @@ export function getProductHeroMetrics(
       {
         label: hasIp ? "Защита · гарантия" : "Отдача · гарантия",
         value: hasIp
-          ? `${ph.ip}${ph.ik ? ` / ${ph.ik}` : ""} · 5 лет`
-          : `${ph.efficacy || "LED"} · 5 лет`,
+          ? `${ph.ip}${ph.ik ? ` / ${ph.ik}` : ""} · ${formatWarranty(product.warrantyYears)}`
+          : `${ph.efficacy || "LED"} · ${formatWarranty(product.warrantyYears)}`,
       },
     ];
   }

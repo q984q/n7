@@ -49,11 +49,11 @@ export const CATEGORIES: CategoryInfo[] = [
     name: "Светодиодное освещение",
     shortName: "Освещение",
     description:
-      "45 моделей модульных светодиодных прожекторов мощностью от 100 до 1250 Вт в четырёх фирменных линейках: N7 TITAN (E, S, DMX — 250–1250 Вт, 160–165 лм/Вт), N7 VEKTOR (120–600 Вт, IP67, IK09), N7 KRON (150–600 Вт, 3030 SMD, IP67, IK10) и N7 KORT (100–600 Вт, 5050 SMD, IP66, IK10). Гарантия — 5 лет.",
+      "45 моделей модульных светодиодных прожекторов мощностью от 100 до 1250 Вт в четырёх фирменных линейках: N7 TITAN (E, S, DMX — 250–1250 Вт, 160–165 лм/Вт), N7 VEKTOR (120–600 Вт, IP67, IK09), N7 KRON (150–600 Вт, 3030 SMD, IP67, IK10) и N7 KORT (100–600 Вт, 5050 SMD, IP66, IK10). Гарантия зависит от серии.",
     image: "/images/products/led-titan-dmx-front.jpg",
     seoTitle: "Светодиодные прожекторы N7 TITAN, VEKTOR, KRON, KORT (100–1250 Вт) | N7 CONSTRUCTION",
     seoDescription:
-      "45 моделей модульных прожекторов N7 CONSTRUCTION по мощности от 100 до 1250 Вт (артикулы N7-LTE, N7-LTS, N7-LTD, N7-LVK, N7-LVS, N7-LKR, N7-LKS, N7-LCT, N7-LCS): до 165 лм/Вт, драйверы Inventronics и Sosen, гарантия 5 лет.",
+      "45 моделей модульных прожекторов N7 CONSTRUCTION по мощности от 100 до 1250 Вт (артикулы N7-LTE, N7-LTS, N7-LTD, N7-LVK, N7-LVS, N7-LKR, N7-LKS, N7-LCT, N7-LCS): до 165 лм/Вт, драйверы Inventronics и Sosen.",
     highlights: [
       "N7 TITAN E / S / DMX (N7-LTE, LTS, LTD): 250–1250 Вт, 160–165 лм/Вт, DALI / DMX",
       "N7 VEKTOR / VEKTOR S (N7-LVK, LVS): 120–600 Вт, IP67, IK09",

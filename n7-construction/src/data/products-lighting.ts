@@ -236,7 +236,7 @@ export const LIGHTING_SERIES: LightingSeriesMeta[] = [
     ik: "IK09",
     driver: "Inventronics",
     mountNote: "Поворотная П-образная лира с независимым наклоном модулей",
-    warrantyYears: 5,
+    warrantyYears: 0,
     environment: "universal",
     environmentLabel: "Теннисные и падел-корты, открытые площадки и спортивные объекты",
     sports: ["Теннис", "Падел", "Баскетбол 3×3", "Мультиспорт"],
@@ -294,7 +294,7 @@ export const LIGHTING_SERIES: LightingSeriesMeta[] = [
     ik: "IK09",
     driver: "Inventronics",
     mountNote: "Усиленный поворотный кронштейн серии S с градуировкой угла наклона",
-    warrantyYears: 5,
+    warrantyYears: 0,
     environment: "universal",
     environmentLabel: "Открытые корты, футбольные поля, спортивные площадки и мачты",
     sports: ["Теннис", "Падел", "Баскетбол 3×3", "Мультиспорт"],
@@ -353,7 +353,7 @@ export const LIGHTING_SERIES: LightingSeriesMeta[] = [
     ik: "IK10",
     driver: "Inventronics",
     mountNote: "Модульная П-образная лира с секциями по 150 Вт",
-    warrantyYears: 5,
+    warrantyYears: 0,
     environment: "universal",
     environmentLabel: "Спортивные площадки, корты, игровые залы и территории комплексов",
     sports: ["Корты", "Игровые площадки", "Спортивные залы"],
@@ -391,7 +391,7 @@ export const LIGHTING_SERIES: LightingSeriesMeta[] = [
     ik: "IK10",
     driver: "Inventronics",
     mountNote: "Усиленная лира серии S с зубчатым фиксатором угла наклона (секции по 150 Вт)",
-    warrantyYears: 5,
+    warrantyYears: 0,
     environment: "universal",
     environmentLabel: "Открытые спортивные площадки, корты и всепогодные объекты",
     sports: ["Корты", "Игровые площадки", "Спортивные залы"],
@@ -522,6 +522,8 @@ function buildLightingProducts(): Product[] {
   let seq = 1;
 
   for (const s of LIGHTING_SERIES) {
+    const warranty = s.warrantyYears ? `${s.warrantyYears} лет` : 'уточняется при заказе';
+    const factoryFamily = ({'led-titan':'TN610E','led-vektor':'TN610C','led-kron':'TN510D','led-kort':'TN510C'} as Record<string,string>)[s.subcategory];
     for (const w of s.wattages) {
       const id = `l-${String(seq).padStart(2, "0")}`;
       seq += 1;
@@ -555,7 +557,7 @@ function buildLightingProducts(): Product[] {
         ? s.driverOptions.map((opt) => ({
             code: `${sku}-${opt.suffix}`,
             spec: `${w} Вт • драйвер ${opt.brand} • ${efficacy}`,
-            detail: `${opt.note}; светодиоды ${s.ledChip}, гарантия ${s.warrantyYears} лет`,
+            detail: `${opt.note}; светодиоды ${s.ledChip}, гарантия ${warranty}`,
           }))
         : [
             {
@@ -563,7 +565,7 @@ function buildLightingProducts(): Product[] {
               spec: `${w} Вт • драйвер ${s.driver}${s.dimming ? ` • ${s.dimming}` : ""}`,
               detail: `${efficacy} (${fluxRange}), ${s.ledChip}, ${s.voltage}${
                 hasProtection ? `, ${protectionText}` : ""
-              }, гарантия ${s.warrantyYears} лет`,
+              }, гарантия ${warranty}`,
             },
           ];
 
@@ -573,6 +575,7 @@ function buildLightingProducts(): Product[] {
         { label: "Номинальная мощность", value: `${w} Вт`, highlight: true },
         { label: "Световая отдача", value: efficacy, highlight: true },
         { label: "Расчётный световой поток", value: fluxRange, highlight: true },
+        { label: "Серия поставщика", value: factoryFamily },
         { label: "Тип светодиодов", value: s.ledChip },
         { label: "Драйвер", value: s.driver, highlight: true },
         ...(s.dimming
@@ -595,8 +598,8 @@ function buildLightingProducts(): Product[] {
           s.dimming ? ` с цифровым диммированием ${s.dimming}` : ""
         }`,
         hasProtection
-          ? `Защита корпуса ${s.ip} и класс ударопрочности ${s.ik}; гарантия ${s.warrantyYears} лет`
-          : `Четыре диапазона цветовой температуры (${s.cct}); гарантия ${s.warrantyYears} лет`,
+          ? `Защита корпуса ${s.ip} и класс ударопрочности ${s.ik}; гарантия ${warranty}`
+          : `Четыре диапазона цветовой температуры (${s.cct}); гарантия ${warranty}`,
         `Выбор угла оптики под проект: ${s.beamAnglesText}`,
       ];
 
@@ -621,7 +624,7 @@ function buildLightingProducts(): Product[] {
 
       const summary = `${s.tagline}. Мощность ${w} Вт, световая отдача ${efficacy} (${fluxRange}), светодиоды ${s.ledChip}, драйвер ${s.driver}${
         s.dimming ? `, управление ${s.dimming}` : ""
-      }${hasProtection ? `, защита ${s.ip} / ${s.ik}` : ""}, гарантия ${s.warrantyYears} лет.`;
+      }${hasProtection ? `, защита ${s.ip} / ${s.ik}` : ""}, гарантия ${warranty}.`;
 
       const description = `Светодиодный прожектор ${modelTitle} (артикул ${sku}) входит в фирменную линейку освещения ${s.subcategoryLabel} от N7 CONSTRUCTION. При номинальной мощности ${w} Вт и световой отдаче ${efficacy} прибор формирует расчётный световой поток ${fluxRange}. Модули выполнены на светодиодах ${s.ledChip} и работают от сети ${s.voltage} с промышленным драйвером ${s.driver}${
         s.dimming ? ` и поддержкой цифрового управления ${s.dimming}` : ""
@@ -629,7 +632,7 @@ function buildLightingProducts(): Product[] {
         hasProtection
           ? ` Корпус рассчитан на эксплуатацию со степенью пылевлагозащиты ${s.ip} и ударопрочностью ${s.ik}.`
           : ` Для заказа доступны четыре диапазона цветовой температуры: ${s.cct}.`
-      } Доступные углы распределения света: ${s.beamAnglesText}. Срок гарантии по технической спецификации — ${s.warrantyYears} лет.`;
+      } Доступные углы распределения света: ${s.beamAnglesText}. Срок гарантии по технической спецификации — ${warranty}.`;
 
       out.push({
         id,
@@ -689,7 +692,7 @@ function buildLightingProducts(): Product[] {
         seoTitle: `Прожектор ${modelTitle} (${w} Вт, арт. ${sku}) | N7 CONSTRUCTION`,
         seoDescription: `Светодиодный прожектор ${modelTitle} (${sku}): мощность ${w} Вт, ${efficacy} (${fluxRange}), ${s.ledChip}, драйвер ${s.driver}${
           s.dimming ? `, ${s.dimming}` : ""
-        }${hasProtection ? `, ${s.ip}, ${s.ik}` : ""}, гарантия ${s.warrantyYears} лет.`,
+        }${hasProtection ? `, ${s.ip}, ${s.ik}` : ""}, гарантия ${warranty}.`,
       });
     }
   }

@@ -117,7 +117,7 @@ export function LightingSeriesCard({ models }: { models: Product[] }) {
 
         {active.photometry && (
           <div className="mt-2 text-[11px] text-ink/50 tabular-nums">
-            {active.photometry.fluxRange} · {active.photometry.driver} · 5 лет
+            {active.photometry.fluxRange} · {active.photometry.driver} · {active.warrantyYears ? `${active.warrantyYears} лет` : "Гарантия по запросу"}
           </div>
         )}
 

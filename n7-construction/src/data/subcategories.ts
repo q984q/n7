@@ -137,7 +137,7 @@ export const SUBCATEGORIES: SubcategoryInfo[] = [
  shortName: "N7 TITAN (250–1250 Вт)",
  heroTitle: "Стадионные модульные прожекторы N7 TITAN E, TITAN S и TITAN DMX (250–1250 Вт)",
  description:
- "13 моделей по мощности с артикулами N7-LTE-0250…1250 (TITAN E), N7-LTS-0500…1250 (TITAN S) и N7-LTD-0500…1250 (TITAN DMX с управлением DALI / DMX). Светодиоды 5050 SMD, световая отдача 160–165 лм/Вт, 4 диапазона CCT (2700–6500K), 6 углов свечения, драйверы Sosen / Inventronics и гарантия 5 лет.",
+ "13 моделей по мощности с артикулами N7-LTE-0250…1250 (TITAN E), N7-LTS-0500…1250 (TITAN S) и N7-LTD-0500…1250 (TITAN DMX с управлением DALI / DMX). Светодиоды 5050 SMD, световая отдача 160–165 лм/Вт, 4 диапазона CCT (2700–6500K), 6 углов свечения, драйверы Sosen / Inventronics; гарантия уточняется при заказе.",
  image: "/images/products/led-titan-dmx-front.jpg",
  seoTitle: "Прожекторы N7 TITAN E / S / DMX (250–1250 Вт, 160–165 лм/Вт) | N7 CONSTRUCTION",
  seoDescription:
@@ -156,7 +156,7 @@ export const SUBCATEGORIES: SubcategoryInfo[] = [
  shortName: "N7 VEKTOR (120–600 Вт)",
  heroTitle: "Герметичные модульные прожекторы N7 VEKTOR и VEKTOR S (120–600 Вт, IP67, IK09)",
  description:
- "12 моделей по мощности с артикулами N7-LVK-0120…0600 (VEKTOR) и N7-LVS-0120…0600 (VEKTOR S): 120, 240, 320, 360, 480 и 600 Вт. Светодиоды 5050 SMD, отдача 150–160 лм/Вт, защита IP67 / IK09, драйвер Inventronics, 6 вариантов оптики и гарантия 5 лет.",
+ "12 моделей по мощности с артикулами N7-LVK-0120…0600 (VEKTOR) и N7-LVS-0120…0600 (VEKTOR S): 120, 240, 320, 360, 480 и 600 Вт. Светодиоды 5050 SMD, отдача 150–160 лм/Вт, защита IP67 / IK09, драйвер Inventronics, 6 вариантов оптики; гарантия уточняется при заказе.",
  image: "/images/products/led-vektor-s-3m.jpg",
  seoTitle: "Прожекторы N7 VEKTOR и VEKTOR S (120–600 Вт, IP67, IK09) | N7 CONSTRUCTION",
  seoDescription:
@@ -175,7 +175,7 @@ export const SUBCATEGORIES: SubcategoryInfo[] = [
  shortName: "N7 KRON (150–600 Вт)",
  heroTitle: "Ударопрочные герметичные прожекторы N7 KRON и KRON S (150–600 Вт, IP67, IK10)",
  description:
- "8 моделей по мощности с артикулами N7-LKR-0150…0600 (KRON) и N7-LKS-0150…0600 (KRON S): 150, 300, 450 и 600 Вт. Светодиоды 3030 SMD, световая отдача 150–160 лм/Вт, сочетание IP67 и IK10, драйвер Inventronics, овальная оптика 30×90° / 30×110° и гарантия 5 лет.",
+ "8 моделей по мощности с артикулами N7-LKR-0150…0600 (KRON) и N7-LKS-0150…0600 (KRON S): 150, 300, 450 и 600 Вт. Светодиоды 3030 SMD, световая отдача 150–160 лм/Вт, сочетание IP67 и IK10, драйвер Inventronics, овальная оптика 30×90° / 30×110°; гарантия уточняется при заказе.",
  image: "/images/products/led-kron-s-3m.jpg",
  seoTitle: "Прожекторы N7 KRON и KRON S (150–600 Вт, IP67, IK10) | N7 CONSTRUCTION",
  seoDescription:
@@ -194,7 +194,7 @@ export const SUBCATEGORIES: SubcategoryInfo[] = [
  shortName: "N7 KORT (100–600 Вт)",
  heroTitle: "Кортовые и зальные прожекторы N7 KORT и KORT S (100–600 Вт, IP66, IK10)",
  description:
- "12 моделей с шагом 100 Вт — артикулы N7-LCT-0100…0600 (KORT) и N7-LCS-0100…0600 (KORT S): 100, 200, 300, 400, 500 и 600 Вт. Светодиоды 5050 SMD, отдача 150–160 лм/Вт, защита IP66 / IK10, драйвер Inventronics, углы 60° / 90° / 120° / Asym 80×150° и гарантия 5 лет.",
+ "12 моделей с шагом 100 Вт — артикулы N7-LCT-0100…0600 (KORT) и N7-LCS-0100…0600 (KORT S): 100, 200, 300, 400, 500 и 600 Вт. Светодиоды 5050 SMD, отдача 150–160 лм/Вт, защита IP66 / IK10, драйвер Inventronics, углы 60° / 90° / 120° / Asym 80×150°; гарантия уточняется при заказе.",
  image: "/images/products/led-kort-s-3m.jpg",
  seoTitle: "Прожекторы N7 KORT и KORT S (100–600 Вт, IP66, IK10) | N7 CONSTRUCTION",
  seoDescription:
