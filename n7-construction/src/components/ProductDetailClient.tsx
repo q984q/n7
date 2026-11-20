@@ -207,6 +207,13 @@ export function ProductDetailClient({
         <h1 className="mt-5 max-w-5xl text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">{product.shortName}</h1>
         <p className="mt-2 text-ink-muted">{purpose}</p>
       </header>
+      <button type="button" onClick={()=>window.print()} className="no-print inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-bold ring-1 ring-ink/10"><FileText className="h-4 w-4" />Печать / PDF характеристик</button>
+      <article className="n7-print-sheet hidden">
+        <p>N7 CONSTRUCTION · Лист каталога</p><h1>{product.name}</h1><p>Арт. {product.sku} · {product.subcategoryLabel}</p>
+        <p>{product.summary}</p><dl>{product.specs.map((s,i)=><div key={i}><dt>{s.label}</dt><dd>{s.value}</dd></div>)}</dl>
+        <p>Минимальный заказ: {product.minOrder} {product.unit}. Шаг заказа: {product.stepQty} {product.unit}.</p>
+        <small>Справочный лист каталога. Не заменяет паспорт производителя или коммерческое предложение.</small>
+      </article>
       {/* Верхний экран: галерея с зумом + интерактивный выбор */}
       <div className="grid gap-8 lg:grid-cols-12 items-start">
         {/* Галерея */}

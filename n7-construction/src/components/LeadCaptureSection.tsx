@@ -1,4 +1,5 @@
 "use client";
+import { OfflineQuote } from "@/components/OfflineQuote";
 
 import React, { useRef, useState } from "react";
 import { ArrowRight, CheckCircle2, Paperclip, X } from "lucide-react";
@@ -75,7 +76,7 @@ export function LeadCaptureSection({
                 {title}
               </h2>
               <p className="text-sm leading-relaxed text-white/65 max-w-md">
-                {subtitle}
+                {process.env.NEXT_PUBLIC_STATIC_SITE === "1" ? "Соберите параметры объекта и сохраните текст для запроса цены, доставки и монтажа." : subtitle}
               </p>
               <div className="flex flex-wrap gap-1.5 pt-1">
                 {[
@@ -113,7 +114,7 @@ export function LeadCaptureSection({
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-3">
+                  process.env.NEXT_PUBLIC_STATIC_SITE === "1" ? <OfflineQuote /> : (<form onSubmit={handleSubmit} className="space-y-3">
                     <div className="grid gap-3 sm:grid-cols-2">
                       <input
                         type="text"
@@ -229,7 +230,7 @@ export function LeadCaptureSection({
                       {submitting ? "Отправка..." : "Получить расчёт"}
                       <ArrowRight className="h-4 w-4" />
                     </button>
-                  </form>
+                  </form>)
                 )}
               </div>
             </div>

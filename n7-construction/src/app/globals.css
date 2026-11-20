@@ -157,3 +157,12 @@
   input:not([type=checkbox]):not([type=radio]):not([type=file]), textarea, select { font-size: 16px; }
   html { scroll-padding-block: 5rem 6rem; }
 }
+
+@media print {
+  body:has(.n7-print-sheet) *:not(:has(.n7-print-sheet)):not(.n7-print-sheet):not(.n7-print-sheet *) { display:none!important; }
+  .n7-print-sheet { display:block!important; font:11pt/1.45 sans-serif; color:black; }
+  .n7-print-sheet h1 { font-size:21pt; margin:12pt 0; }
+  .n7-print-sheet dl { margin:15pt 0; }
+  .n7-print-sheet dl div { display:grid; grid-template-columns:1fr 2fr; border-bottom:1px solid #ccc; padding:5pt; break-inside:avoid; }
+  .n7-print-sheet dt { font-weight:bold; }
+}

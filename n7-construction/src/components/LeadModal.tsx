@@ -1,4 +1,5 @@
 "use client";
+import { OfflineQuote } from "@/components/OfflineQuote";
 
 import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -155,7 +156,7 @@ export function LeadModal() {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="mt-5 space-y-3">
+            {process.env.NEXT_PUBLIC_STATIC_SITE === "1" ? <OfflineQuote context={leadModal.contextSummary || leadModal.title} /> : (<form onSubmit={handleSubmit} className="mt-5 space-y-3">
               <div className="grid gap-3 sm:grid-cols-2">
                 <input
                   type="text"
@@ -269,7 +270,7 @@ export function LeadModal() {
                   </a>
                 )}
               </div>
-            </form>
+            </form>)}
           </>
         )}
       </div>

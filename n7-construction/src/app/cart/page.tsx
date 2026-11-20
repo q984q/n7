@@ -1,4 +1,5 @@
 "use client";
+import { OfflineQuote } from "@/components/OfflineQuote";
 
 import React, { useRef, useState } from "react";
 import Image from "next/image";
@@ -224,7 +225,7 @@ export default function CartPage() {
               ))}
             </div>
 
-            <form
+            {process.env.NEXT_PUBLIC_STATIC_SITE === "1" ? <OfflineQuote /> : (<form
               onSubmit={handleSubmit}
               className="lg:col-span-5 lg:sticky lg:top-24 rounded-[28px] bg-white p-6 ring-1 ring-ink/[0.08] shadow-card space-y-3.5"
             >
@@ -355,7 +356,7 @@ export default function CartPage() {
                 <Send className="h-3.5 w-3.5" />
                 {submitting ? "Отправка..." : "Отправить запрос КП"}
               </button>
-            </form>
+            </form>)}
           </div>
         )}
       </div>

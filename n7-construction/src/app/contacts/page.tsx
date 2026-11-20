@@ -158,6 +158,14 @@ export default async function ContactsPage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-bold">Что уточнить перед заказом</h2>
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">{[
+          ['Стоимость и оплата','Укажите артикул, исполнение и количество. Попросите указать в КП итоговую сумму, налоги и порядок оплаты.'],
+          ['Доставка по Казахстану','Укажите город, адрес объекта и желаемую дату. Наличие, стоимость перевозки и срок поставки уточняются для конкретного заказа.'],
+          ['Монтаж и документы','Если нужен монтаж, укажите площадь и тип основания. Паспорт модели, сертификаты, гарантию и образцы запросите до оплаты.']
+        ].map(([title,body])=><div key={title} className="rounded-2xl bg-white p-5"><h3 className="font-bold">{title}</h3><p className="mt-2 text-sm text-ink-muted">{body}</p></div>)}</div>
+      </section>
       <LeadCaptureSection
         title="Отправить запрос на расчёт"
         subtitle="Оставьте телефон или WhatsApp — можно сразу прикрепить план зала, смету или техническое задание."

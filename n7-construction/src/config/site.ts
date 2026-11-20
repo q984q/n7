@@ -9,7 +9,6 @@ export const SITE_CONFIG = {
   countryName: "Казахстан",
   currency: "KZT",
   currencySymbol: "₸",
-  vatRate: 0.12,
 
   // Заполняются администратором в панели /admin (по умолчанию пустые — без вымышленных контактов)
   bin: "",
