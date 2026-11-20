@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: n7-construction
+    runtime: node
+    branch: arena/0360f98e-n7
+    rootDir: n7-construction
+    plan: starter
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start -- -H 0.0.0.0 -p $PORT
+    healthCheckPath: /api/cms
+    disk:
+      name: n7-data
+      mountPath: /var/data/n7
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 22.22.3
+      - key: N7_DATA_DIR
+        value: /var/data/n7
+      - key: N7_SESSION_SECRET
+        generateValue: true
+      - key: N7_ADMIN_PASSWORD
+        generateValue: true

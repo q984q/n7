@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-canvas: #f5f6f8;
+    --fg-ink: #0b0f14;
+    --accent-track: #d94423;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 92px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(11, 15, 20, 0.28) transparent;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--fg-ink);
+    overflow-x: hidden;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background-color: #d94423;
+    color: #ffffff;
+  }
+
+  /* Аккуратный фирменный скроллбар страницы (WebKit / Blink) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(11, 15, 20, 0.24);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #d94423;
+  }
+}
+
+@layer utilities {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Скрытый скроллбар с сохранением плавного свайпа */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Тонкий светлый скроллбар для таблиц, списков и модальных окон */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(11, 15, 20, 0.24) rgba(11, 15, 20, 0.04);
+    -webkit-overflow-scrolling: touch;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(11, 15, 20, 0.04);
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(11, 15, 20, 0.24);
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #d94423;
+  }
+
+  /* Тонкий тёмный скроллбар для парящих островов и мобильной шторки */
+  .dark-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.26) rgba(255, 255, 255, 0.05);
+    -webkit-overflow-scrolling: touch;
+  }
+  .dark-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .dark-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 9999px;
+  }
+  .dark-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.26);
+    border-radius: 9999px;
+  }
+  .dark-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #d94423;
+  }
+}
+
+/* Subtle architectural grid background for engineering sections */
+.bg-blueprint-dark {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-blueprint-light {
+  background-image: linear-gradient(
+      to right,
+      rgba(11, 15, 20, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(11, 15, 20, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Clean print styles for Commercial Proposal (КП) & Estimate */
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+
+/* Keep fields readable without Safari zooming when a customer fills in a request. */
+@media (max-width: 767px) {
+  input:not([type=checkbox]):not([type=radio]):not([type=file]), textarea, select { font-size: 16px; }
+  html { scroll-padding-block: 5rem 6rem; }
+}
+
+@media print {
+  body:has(.n7-print-sheet) *:not(:has(.n7-print-sheet)):not(.n7-print-sheet):not(.n7-print-sheet *) { display:none!important; }
+  .n7-print-sheet { display:block!important; font:11pt/1.45 sans-serif; color:black; }
+  .n7-print-sheet h1 { font-size:21pt; margin:12pt 0; }
+  .n7-print-sheet dl { margin:15pt 0; }
+  .n7-print-sheet dl div { display:grid; grid-template-columns:1fr 2fr; border-bottom:1px solid #ccc; padding:5pt; break-inside:avoid; }
+  .n7-print-sheet dt { font-weight:bold; }
+}
