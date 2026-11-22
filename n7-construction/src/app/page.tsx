@@ -70,17 +70,17 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <span className="n7-enter n7-delay-1 inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.16em] text-white/90 ring-1 ring-white/15 backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-full bg-track" />
-              N7 CONSTRUCTION · СПОРТИВНАЯ ИНФРАСТРУКТУРА
+              N7 CONSTRUCTION · КАЗАХСТАН
             </span>
 
             <h1 className="n7-enter n7-delay-2 mt-5 text-[32px] sm:text-5xl lg:text-[62px] font-extrabold leading-[1.05] tracking-[-0.03em]">
-              <span className="block">ПРОСТРАНСТВО</span>
-              <span className="block text-track">ДЛЯ СПОРТА</span>
+              <span className="block">ПОКРЫТИЯ,</span>
+              <span className="block">ПАДЕЛ-КОРТЫ</span>
+              <span className="block text-track">И LED-ОСВЕЩЕНИЕ</span>
             </h1>
 
             <p className="n7-enter n7-delay-3 mt-4 text-sm sm:text-lg font-medium text-white/75 max-w-2xl">
-              Покрытия, падел-корты и спортивное освещение для залов,
-              открытых кортов и стадионов. Подбор решения — под ваш объект.
+              Каталог N7 для залов, открытых кортов и стадионов. Подбор покрытия, корта или LED-прожектора — по параметрам объекта.
             </p>
 
             <div className="n7-enter n7-delay-4 mt-7 flex flex-wrap items-center gap-2.5 sm:gap-3">

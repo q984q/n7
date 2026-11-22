@@ -27,7 +27,7 @@ export function ProjectFitWizard() {
           <div className="lg:col-span-4">
             <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-track">Подбор по задаче</p>
             <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">С чего начать подбор</h2>
-            <p className="mt-2 text-sm leading-relaxed text-ink/60">Выберите объект и направление. Если сомневаетесь — оставьте запрос без выбора модели.</p>
+            <p className="mt-2 text-sm leading-relaxed text-ink/60">Выберите объект и направление. Точную модель знать не обязательно: для запроса пригодятся назначение и размеры площадки; план можно приложить в форме.</p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:col-span-5">
             <fieldset>
