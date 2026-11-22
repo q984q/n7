@@ -10,6 +10,7 @@ import React, {
 } from "react";
 import { PRODUCTS, Product, orderQuantity, getTierPrice } from "@/data/products";
 import { SITE_CONFIG } from "@/config/site";
+import { trackEvent, trackProductEvent } from "@/lib/analytics";
 
 export interface CartItem {
   lineKey: string;
@@ -213,7 +214,10 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     []
   );
 
-  const openCart = useCallback(() => setIsCartOpen(true), []);
+  const openCart = useCallback(() => {
+    setIsCartOpen(true);
+    trackEvent("begin_checkout", { item_count: rawCart.length });
+  }, [rawCart.length]);
   const closeCart = useCallback(() => setIsCartOpen(false), []);
 
   const addToCart = useCallback(
@@ -257,6 +261,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
         ];
       });
 
+      trackProductEvent("add_to_cart", product, addAmount);
       if (openDrawer) {
         setIsCartOpen(true);
       } else {
@@ -320,6 +325,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       if (!product) return;
       setCompareIds((prev) => {
         if (prev.includes(productId)) {
+          trackEvent("compare_remove", { item_id: productId, item_sku: product.sku });
           pushToast(`Убрано из сравнения: ${product.shortName}`);
           return prev.filter((id) => id !== productId);
         }
@@ -327,6 +333,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
           pushToast("До 4 позиций — заменили первую");
           return [...prev.slice(1), productId];
         }
+        trackEvent("compare_add", { item_id: productId, item_sku: product.sku });
         pushToast(`В сравнении: ${product.shortName}`);
         return [...prev, productId];
       });

@@ -36,6 +36,7 @@ import { formatPrice, hasPrice } from "@/lib/format";
 import { ScrollRail } from "@/components/ScrollRail";
 import { BrandLogo } from "./BrandLogo";
 import { LightingSeriesComparison } from "./LightingSeriesComparison";
+import { trackProductEvent } from "@/lib/analytics";
 
 export function ProductDetailClient({
   product: initialProduct,
@@ -54,6 +55,10 @@ export function ProductDetailClient({
   const product =
     liveProducts.find((p) => p.id === initialProduct.id) || initialProduct;
   const isLighting = product.category === "lighting";
+
+  React.useEffect(() => {
+    trackProductEvent("view_item", product);
+  }, [product]);
   const isAreaProduct = product.unit === "м²";
 
   const gallery =

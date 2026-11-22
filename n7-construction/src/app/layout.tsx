@@ -8,6 +8,7 @@ import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { CartDrawer } from "@/components/CartDrawer";
 import { LeadModal, GlobalWidgets } from "@/components/LeadModal";
 import { JsonLd } from "@/components/JsonLd";
+import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { getOrganizationSchema, getWebsiteSchema } from "@/lib/seo";
 import { SITE_CONFIG } from "@/config/site";
 
@@ -64,6 +65,7 @@ export default function RootLayout({
     <html lang="ru-KZ" className={`${manrope.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans antialiased bg-canvas text-ink min-h-screen flex flex-col">
         <JsonLd data={[getOrganizationSchema(), getWebsiteSchema()]} />
+        <AnalyticsEvents />
         <StoreProvider>
           <Header />
           <main id="main-content" className="flex-1">
