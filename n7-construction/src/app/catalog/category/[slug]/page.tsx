@@ -11,6 +11,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CatalogBrowser } from "@/components/CatalogBrowser";
 import { LeadCaptureSection } from "@/components/LeadCaptureSection";
+import { LightingBrief } from "@/components/LightingBrief";
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ slug: c.slug }));
@@ -61,6 +62,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             </span>
           </div>
 
+          {cat.id === "lighting" && <LightingBrief />}
           <CatalogBrowser initialCategory={cat.id} />
         </div>
       </section>

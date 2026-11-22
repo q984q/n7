@@ -14,8 +14,13 @@ export function OfflineQuote({context}: {context?: string}) {
     const params = new URLSearchParams(window.location.search);
     const selectedObject = params.get('object');
     const selectedNeed = params.get('need');
+    const selectedBrief = params.get('brief');
+    const selectedSize = params.get('size');
+    const selectedHeight = params.get('height');
     if (selectedObject) setObject(selectedObject);
-    if (selectedNeed) setNote(`Нужно подобрать: ${selectedNeed}`);
+    if (selectedSize) setSize(selectedSize);
+    if (selectedHeight) setHeight(selectedHeight);
+    if (selectedNeed || selectedBrief) setNote([selectedNeed && `Запрос: ${selectedNeed}`, selectedBrief].filter(Boolean).join(' · '));
   }, []);
   const details=[object && `Тип объекта: ${object}`,size.trim() && `Размеры площадки: ${size.trim()}`,height.trim() && `Высота опор: ${height.trim()}`,needInstall && 'Нужен расчёт монтажа / шеф-монтажа',needSamples && 'Нужны образцы покрытий',note.trim()].filter(Boolean).join('\n');
   const lines = context ? [context] : cart.map(({product,qty,optionsNote,includeInstall},i)=>`${i+1}. ${product.shortName} · арт. ${product.sku} · ${qty} ${product.unit}${optionsNote ? ` · ${optionsNote}` : ''}${includeInstall ? ' · с монтажом' : ''}`);
