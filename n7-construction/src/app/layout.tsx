@@ -43,6 +43,16 @@ export const metadata: Metadata = {
     "Каталог N7 CONSTRUCTION: рулонные ПВХ-покрытия (Y-*6170, Y14155S, A-*9180, A-*9160, A-65160, 2 мм, печать под заказ), спортивный паркет, модульные покрытия (SES Elite, E630, FLEX 16, DL, Pearl Asterisk), беговые дорожки, пиклбол, дренажный настил 3816–3819, падел-корты PD001–PD008 и 45 моделей прожекторов N7 TITAN, VEKTOR, KRON, KORT.",
   applicationName: SITE_CONFIG.name,
   category: "construction",
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || process.env.NEXT_PUBLIC_YANDEX_VERIFICATION ? {
+    verification: {
+      ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+      }),
+      ...(process.env.NEXT_PUBLIC_YANDEX_VERIFICATION && {
+        yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+      }),
+    },
+  } : {}),
 };
 
 export default function RootLayout({

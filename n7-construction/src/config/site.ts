@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   name: "N7 CONSTRUCTION",
   legalName: "N7 CONSTRUCTION",
   tagline: "Покрытия, падел-корты и спортивный свет",
-  url: "https://n7construction.kz",
+  url: "https://q984q.github.io/n7",
   locale: "ru_KZ",
   language: "ru",
   country: "KZ",
