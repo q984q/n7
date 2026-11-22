@@ -53,35 +53,36 @@ const DIRECTION_CARDS = [
 export default function HomePage() {
   return (
     <>
-      {/* Первый экран — воздух, география и понятный оффер */}
+      {/* Тёмный спортивный hero; ниже сохраняется светлый каталог */}
       <section className="relative flex min-h-[82svh] sm:min-h-[86svh] flex-col justify-end overflow-hidden bg-ink text-white">
         <div className="absolute inset-0">
           <Image
-            src="/images/padel-court.jpg"
-            alt="Панорамный падел-корт со светодиодным освещением — N7 CONSTRUCTION"
+            src="/images/hero-stadium-night.jpg"
+            alt="Визуализация ночного спортивного объекта с искусственным освещением"
             fill
             priority
             sizes="100vw"
             className="object-cover opacity-55"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/65 to-ink/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/20" />
         </div>
 
         <div className="relative mx-auto w-full max-w-7xl px-4 pt-28 pb-12 sm:px-6 sm:pt-36 sm:pb-16 lg:px-8">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.16em] text-white/90 ring-1 ring-white/15 backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-full bg-track" />
-              N7 CONSTRUCTION · КАЗАХСТАН
+              N7 CONSTRUCTION · СПОРТИВНАЯ ИНФРАСТРУКТУРА
             </span>
 
             <h1 className="mt-5 text-[32px] sm:text-5xl lg:text-[62px] font-extrabold leading-[1.05] tracking-[-0.03em]">
-              Покрытия, падел-корты и{" "}
-              <span className="text-track">спортивный свет</span>
+              <span className="block">ПРОСТРАНСТВО</span>
+              <span className="block text-track">ДЛЯ СПОРТА</span>
             </h1>
 
             <p className="mt-4 text-sm sm:text-lg font-medium text-white/75 max-w-2xl">
-              Поставка по всему Казахстану для залов, кортов и стадионов.
-              Договор, образцы покрытий и монтаж — по запросу.
+              Покрытия, падел-корты и спортивное освещение для залов,
+              открытых кортов и стадионов. Подбор решения — под ваш объект.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-2.5 sm:gap-3">
@@ -89,7 +90,7 @@ export default function HomePage() {
                 href="/catalog"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-track px-7 text-xs font-extrabold uppercase tracking-wider text-white shadow-glow hover:bg-[#e54d2b] active:scale-[0.98] transition-all"
               >
-                Посмотреть товары
+                Смотреть каталог
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
@@ -106,9 +107,15 @@ export default function HomePage() {
                 <ArrowDown className="h-4 w-4" />
               </a>
             </div>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["ЗАЛ", "ОТКРЫТЫЙ КОРТ", "ПОЛЕ И СТАДИОН"].map((label) => (
+                <span key={label} className="rounded-full border border-white/20 bg-white/[0.07] px-3 py-1.5 text-[10px] font-bold tracking-[0.14em] text-white/80 backdrop-blur-sm">{label}</span>
+              ))}
+            </div>
+            <p className="mt-5 text-[10px] text-white/45">Визуализация спортивного объекта</p>
           </div>
 
-          <div className="mt-12 sm:mt-16 grid grid-cols-2 gap-5 sm:grid-cols-4 border-t border-white/15 pt-7">
+          <div className="mt-9 sm:mt-12 grid grid-cols-2 gap-5 sm:grid-cols-4 border-t border-white/15 pt-7">
             {SITE_CONFIG.stats.map((st) => (
               <div key={st.label}>
                 <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white tabular-nums">
