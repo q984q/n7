@@ -10,7 +10,7 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { useStore } from "@/context/StoreContext";
 
 const groups = [
-  ...([{id:"flooring", title:"Покрытия"}, {id:"lighting", title:"Освещение N7"}, {id:"infrastructure", title:"Падел-корты"}].map(group => ({ title:group.title, links:SUBCATEGORIES.filter(sub=>sub.parentCategory===group.id).map(sub=>({href:`/catalog/sub/${sub.slug}`,label:sub.name})) }))),
+  ...([{id:"flooring", title:"Покрытия"}, {id:"lighting", title:"Освещение N7"}].map(group => ({ title:group.title, links:SUBCATEGORIES.filter(sub=>sub.parentCategory===group.id).map(sub=>({href:`/catalog/sub/${sub.slug}`,label:sub.name})) }))),
   {title:"Покупателю", links:[{href:"/catalog",label:"Каталог"},{href:"/pricelist",label:"Скачать каталог"},{href:"/compare",label:"Сравнение"},{href:"/cart",label:"Список КП"},{href:"/contacts",label:"Контакты и заявка"}]}
 ];
 function FooterLinks({ links }: {links: typeof groups[number]["links"]}) {

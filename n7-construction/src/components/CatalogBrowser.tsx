@@ -641,7 +641,6 @@ export function CatalogBrowser({
           <div className="flex flex-wrap justify-center gap-2">
             <Link href="/catalog/category/flooring" className="rounded-full bg-canvas px-4 py-2 text-xs font-bold text-ink hover:bg-ink/10">Покрытия</Link>
             <Link href="/catalog/category/lighting" className="rounded-full bg-canvas px-4 py-2 text-xs font-bold text-ink hover:bg-ink/10">Освещение</Link>
-            <Link href="/catalog/category/infrastructure" className="rounded-full bg-canvas px-4 py-2 text-xs font-bold text-ink hover:bg-ink/10">Падел-корты</Link>
           </div>
           <button
             type="button"

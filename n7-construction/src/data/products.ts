@@ -61,24 +61,7 @@ export const CATEGORIES: CategoryInfo[] = [
       "N7 KORT / KORT S (N7-LCT, LCS): 100–600 Вт, 5050 SMD, IP66, IK10",
     ],
   },
-  {
-    id: "infrastructure",
-    slug: "infrastructure",
-    name: "Падел-корты 20 × 10 м",
-    shortName: "Падел-корты",
-    description:
-      "Комплектные падел-корты 20 × 10 м в четырёх исполнениях: панорамные PD001–PD004, суперпанорамный PD005, со встроенным навесом PD006 и классические PD007–PD008. Закалённое стекло 12 мм, сварная сетка 50×50 мм, газон 200 м² (12 мм) и LED-освещение.",
-    image: "/images/padel-court.jpg",
-    seoTitle: "Падел-корты 20×10 м PD001–PD008: панорамные, с навесом, классические | N7 CONSTRUCTION",
-    seoDescription:
-      "Падел-корты N7 CONSTRUCTION серий PD001–PD008 размером 20×10 м: 18 панелей стекла 12 мм, сварная сетка Ø4 мм (50×50 мм), искусственный газон 200 м² (12 мм), окраска по RAL и LED-освещение.",
-    highlights: [
-      "PD001–PD004: панорамная серия 20 × 10 м",
-      "PD005: суперпанорамное исполнение",
-      "PD006: встроенный навес от солнца и дождя",
-      "PD007–PD008: классический каркас с доп. стойками",
-    ],
-  },
+
 ];
 
 // Studio illustrations are linked by exact SKU, never inherited by sibling models.
@@ -101,7 +84,7 @@ export const PRODUCTS: Product[] = [
   ...PVC_PARQUET_PRODUCTS.flatMap(expandFlooring),
   ...MODULAR_SPECIAL_PRODUCTS.flatMap(expandFlooring),
   ...LIGHTING_PADEL_PRODUCTS,
-].map(catalogPresentation);
+].filter((product) => product.category !== "infrastructure").map(catalogPresentation);
 
 export function getProductBySlug(slug: string): Product | undefined {
   return PRODUCTS.find((p) => p.slug === slug);

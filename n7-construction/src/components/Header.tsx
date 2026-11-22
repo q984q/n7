@@ -18,7 +18,6 @@ import { CatalogDirectory } from "./CatalogDirectory";
 const NAV_ITEMS = [
   { label: "Каталог", href: "/catalog" },
   { label: "Покрытия", href: "/catalog/category/flooring" },
-  { label: "Падел", href: "/catalog/category/infrastructure" },
   { label: "Свет N7", href: "/catalog/category/lighting" },
   { label: "Скачать каталог", href: "/pricelist" },
   { label: "Контакты", href: "/contacts" },

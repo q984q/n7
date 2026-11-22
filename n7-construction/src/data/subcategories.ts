@@ -205,27 +205,9 @@ export const SUBCATEGORIES: SubcategoryInfo[] = [
  { label: "Позиций", value: "12 моделей (N7-LCT / LCS)" },
  ],
  },
- {
- slug: "padel",
- parentCategory: "infrastructure",
- parentLabel: "Падел-корты",
- name: "Падел-корты 20 × 10 м",
- shortName: "Падел PD001–PD008",
- heroTitle: "Падел-корты 20 × 10 м серий PD001–PD008",
- description:
- "Четыре типа исполнения : панорамные PD001–PD004, суперпанорамный PD005, со встроенным навесом PD006 и классические PD007–PD008. Закалённое стекло 12 мм (18 панелей), сварная сетка Ø4 мм (50×50 мм), искусственный газон 200 м² (12 мм), окраска по RAL и LED-светильники.",
- image: "/images/padel-court.jpg",
- seoTitle: "Падел-корты PD001–PD008 (20×10 м) | N7 CONSTRUCTION",
- seoDescription:
- "Падел-корты 20×10 м серий PD001–PD008: панорамные, суперпанорамный, со встроенным навесом и классические.",
- keyMetrics: [
- { label: "Игровая зона", value: "20 × 10 м" },
- { label: "Закалённое стекло", value: "12 мм (18 панелей)" },
- { label: "Искусственный газон", value: "200 м² • ворс 12 мм" },
- ],
- },
 ];
 
+
 export function getSubcategoryBySlug(slug: string): SubcategoryInfo | undefined {
- return SUBCATEGORIES.find((s) => s.slug === slug);
+  return SUBCATEGORIES.find((subcategory) => subcategory.slug === slug);
 }
