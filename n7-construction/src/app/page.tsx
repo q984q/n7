@@ -12,7 +12,8 @@ import { SurfaceXRayLab } from "@/components/SurfaceXRayLab";
 import { FaqSection, HowWeWorkSection } from "@/components/WorkAndFaq";
 import { LeadCaptureSection } from "@/components/LeadCaptureSection";
 import { ScrollRail } from "@/components/ScrollRail";
-import { ProjectFitBlock, QuoteChecklistSection, WhyN7Section } from "@/components/BuyerBlocks";
+import { QuoteChecklistSection, WhyN7Section } from "@/components/BuyerBlocks";
+import { ProjectFitWizard } from "@/components/ProjectFitWizard";
 
 export const metadata = buildMetadata({
   title:
@@ -280,7 +281,7 @@ export default function HomePage() {
 
       <QuoteChecklistSection />
 
-      <ProjectFitBlock />
+      <ProjectFitWizard />
 
       {/* Короткие ответы на частые вопросы (свёрнуты по умолчанию) */}
       <FaqSection white />

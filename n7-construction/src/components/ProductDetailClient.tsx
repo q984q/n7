@@ -588,6 +588,7 @@ export function ProductDetailClient({
             </div>
 
             <p className="text-xs text-ink-muted">Минимальный заказ: {product.minOrder} {product.unit} · Шаг: {product.stepQty} {product.unit}</p>
+            {!priced && <details className="rounded-xl bg-canvas px-3.5 py-3 text-xs text-ink/65"><summary className="cursor-pointer font-bold text-ink/75">От чего зависит итоговый расчёт?</summary><p className="mt-2 leading-relaxed">Уточните артикул и исполнение, количество, город доставки и необходимость монтажа. В запросе КП попросите отдельно указать итоговую стоимость, налоги, порядок оплаты и сроки для выбранной комплектации.</p></details>}
             {/* Быстрый калькулятор площади зала (м²) */}
             {isAreaProduct && calcOpen && (
               <div className="rounded-2xl bg-canvas p-3.5 space-y-3">

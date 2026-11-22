@@ -1,7 +1,7 @@
 "use client";
 import {QuoteLetterhead} from './QuoteLetterhead';
 import {BrandLogo} from './BrandLogo';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useStore } from '@/context/StoreContext';
 
 export function OfflineQuote({context}: {context?: string}) {
@@ -9,6 +9,13 @@ export function OfflineQuote({context}: {context?: string}) {
   const [city,setCity]=useState(''), [note,setNote]=useState(''), [status,setStatus]=useState('');
   const [customer,setCustomer]=useState('');
   const [object,setObject]=useState(''), [size,setSize]=useState(''), [height,setHeight]=useState('');
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const selectedObject = params.get('object');
+    const selectedNeed = params.get('need');
+    if (selectedObject) setObject(selectedObject);
+    if (selectedNeed) setNote(`Нужно подобрать: ${selectedNeed}`);
+  }, []);
   const details=[object && `Тип объекта: ${object}`,size.trim() && `Размеры площадки: ${size.trim()}`,height.trim() && `Высота опор: ${height.trim()}`,note.trim()].filter(Boolean).join('\n');
   const lines = context ? [context] : cart.map(({product,qty,optionsNote,includeInstall},i)=>`${i+1}. ${product.shortName} · арт. ${product.sku} · ${qty} ${product.unit}${optionsNote ? ` · ${optionsNote}` : ''}${includeInstall ? ' · с монтажом' : ''}`);
   const text=['Запрос коммерческого предложения · N7 CONSTRUCTION',...lines,customer.trim() && `Заказчик: ${customer.trim()}`,city.trim() && `Город поставки: ${city.trim()}`,details, 'Прошу уточнить цену, условия оплаты, срок поставки, стоимость доставки и монтажа.'].filter(Boolean).join('\n');
