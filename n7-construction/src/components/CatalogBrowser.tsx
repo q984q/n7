@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import {
   ArrowUp,
   ChevronDown,
@@ -34,6 +35,40 @@ interface CatalogBrowserProps {
 }
 
 const PAGE_STEP = 18;
+
+const CYR_TO_LAT: Record<string, string> = { а:"a", б:"b", в:"v", г:"g", д:"d", е:"e", ё:"e", ж:"zh", з:"z", и:"i", й:"y", к:"k", л:"l", м:"m", н:"n", о:"o", п:"p", р:"r", с:"s", т:"t", у:"u", ф:"f", х:"kh", ц:"ts", ч:"ch", ш:"sh", щ:"shch", ы:"y", э:"e", ю:"yu", я:"ya", ь:"", ъ:"" };
+const EN_TO_RU: Record<string, string> = Object.fromEntries(Object.entries({ q:"й", w:"ц", e:"у", r:"к", t:"е", y:"н", u:"г", i:"ш", o:"щ", p:"з", "[":"х", "]":"ъ", a:"ф", s:"ы", d:"в", f:"а", g:"п", h:"р", j:"о", k:"л", l:"д", ";":"ж", "'":"э", z:"я", x:"ч", c:"с", v:"м", b:"и", n:"т", m:"ь", ",":"б", ".":"ю" }));
+const RU_TO_EN: Record<string, string> = Object.fromEntries(Object.entries(EN_TO_RU).map(([en, ru]) => [ru, en]));
+const normalizeSearch = (value: string) => value.toLocaleLowerCase("ru").replace(/ё/g, "е").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+const transliterate = (value: string) => [...value].map((c) => CYR_TO_LAT[c] ?? c).join("");
+const switchKeyboard = (value: string, map: Record<string, string>) => [...value].map((c) => map[c] ?? c).join("");
+function editDistanceAtMostOne(a: string, b: string) {
+  if (Math.abs(a.length - b.length) > 1) return false;
+  let i = 0, j = 0, edits = 0;
+  while (i < a.length && j < b.length) {
+    if (a[i] === b[j]) { i++; j++; continue; }
+    if (++edits > 1) return false;
+    if (a.length > b.length) i++;
+    else if (b.length > a.length) j++;
+    else { i++; j++; }
+  }
+  if (i < a.length || j < b.length) edits++;
+  return edits <= 1;
+}
+function matchesSearch(haystack: string, query: string) {
+  const hay = normalizeSearch(haystack);
+  const q = normalizeSearch(query);
+  if (!q) return true;
+  const hayVariants = [hay, transliterate(hay), switchKeyboard(hay, EN_TO_RU), switchKeyboard(hay, RU_TO_EN)];
+  const queryVariants = [q, transliterate(q), switchKeyboard(q, EN_TO_RU), switchKeyboard(q, RU_TO_EN)];
+  if (queryVariants.some((variant) => variant && hayVariants.some((candidate) => candidate.includes(variant)))) return true;
+  const terms = q.split(/\s+/).filter(Boolean);
+  const hayTokens = hayVariants.flatMap((variant) => variant.split(/\s+/));
+  return terms.every((term) => {
+    const variants = [term, transliterate(term), switchKeyboard(term, EN_TO_RU), switchKeyboard(term, RU_TO_EN)];
+    return variants.some((v) => hayTokens.some((token) => token.startsWith(v) || (v.length >= 4 && token.length >= 4 && editDistanceAtMostOne(v, token))));
+  });
+}
 
 export function CatalogBrowser({
   initialCategory = "all",
@@ -107,7 +142,7 @@ export function CatalogBrowser({
   const [thickness, setThickness] = useState("");
   const thicknesses = Array.from(new Set(liveProducts.filter(p => p.category === "flooring" && (subcategory === "all" || subcategory === p.subcategory)).map(thicknessOf).filter((v): v is string => Boolean(v)))).sort((a,b) => a.localeCompare(b, "ru", {numeric:true}));
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = query.trim();
     return liveProducts.filter((p) => {
       if (category !== "all" && p.category !== category) return false;
       if (subcategory !== "all" && p.subcategory !== subcategory) return false;
@@ -149,7 +184,7 @@ export function CatalogBrowser({
       ]
         .join(" ")
         .toLowerCase();
-      return hay.includes(q);
+      return matchesSearch(hay, q);
     });
   }, [
     liveProducts,
@@ -265,7 +300,7 @@ export function CatalogBrowser({
                 setQuery(e.target.value);
                 setVisibleCount(PAGE_STEP);
               }}
-              placeholder="Поиск: баскетбол, падел, паркет, N7 TITAN, 400 Вт..."
+              placeholder="Название, часть артикула или параметр — например, TITAN / 400 Вт"
               className="w-full rounded-full bg-canvas py-2.5 pl-10 pr-9 text-sm text-ink placeholder:text-ink/40 focus:bg-white focus:ring-2 focus:ring-track focus:outline-none transition-all"
             />
             {query && (
@@ -597,14 +632,22 @@ export function CatalogBrowser({
 
       {/* Сетка карточек */}
       {entries.length === 0 ? (
-        <div className="rounded-[26px] bg-white p-12 text-center ring-1 ring-ink/[0.08] space-y-3">
-          <p className="text-sm font-extrabold text-ink">Ничего не найдено</p>
+        <div className="rounded-[26px] bg-white p-8 sm:p-12 text-center ring-1 ring-ink/[0.08] space-y-4">
+          <div>
+            <p className="text-sm font-extrabold text-ink">По этому запросу не нашлось точного совпадения</p>
+            <p className="mt-1 text-xs text-ink/55">Попробуйте сократить запрос, ввести часть артикула или выбрать направление ниже.</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            <Link href="/catalog/category/flooring" className="rounded-full bg-canvas px-4 py-2 text-xs font-bold text-ink hover:bg-ink/10">Покрытия</Link>
+            <Link href="/catalog/category/lighting" className="rounded-full bg-canvas px-4 py-2 text-xs font-bold text-ink hover:bg-ink/10">Освещение</Link>
+            <Link href="/catalog/category/infrastructure" className="rounded-full bg-canvas px-4 py-2 text-xs font-bold text-ink hover:bg-ink/10">Падел-корты</Link>
+          </div>
           <button
             type="button"
             onClick={resetFilters}
             className="inline-flex rounded-full bg-ink px-5 py-2 text-xs font-bold text-white"
           >
-            Показать все позиции
+            Сбросить фильтры и показать каталог
           </button>
         </div>
       ) : (
