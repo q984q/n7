@@ -45,7 +45,7 @@ const families: Product[] = [
  badge: "20×10 м • Стекло 12 мм",
  featured: true,
  image: "/images/padel-court.jpg",
- gallery: ["/images/padel-court.jpg", "/images/padel-canopy.jpg"],
+ gallery: ["/images/padel-court.jpg"],
  summary:
  "Панорамные (PD001–PD004) и суперпанорамный (PD005) падел-корты 20 × 10 м: 18 панелей закалённого стекла 12 мм, 46 сетчатых секций Ø4 мм (50×50 мм), 200 м² искусственного газона (ворс 12 мм) и комплект LED-освещения.",
  description:
@@ -113,7 +113,7 @@ const families: Product[] = [
  badge: "PD006 • Встроенный навес",
  featured: true,
  image: "/images/padel-canopy.jpg",
- gallery: ["/images/padel-canopy.jpg", "/images/padel-court.jpg"],
+ gallery: ["/images/padel-canopy.jpg"],
  summary:
  "Падел-корт PD006 (20 × 10 м) с интегрированным арочным навесом для защиты игровой зоны от солнца и дождя, закалённым стеклом 12 мм, газоном 200 м² (12 мм) и освещением.",
  description:

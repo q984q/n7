@@ -249,7 +249,13 @@ export function ProductDetailClient({
                   : "object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               }
             />
-            {activeImg.endsWith('-studio.jpg') && <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-ink">Визуализация модели</span>}
+            <span className="absolute bottom-4 left-4 max-w-[80%] rounded-full bg-white/95 px-3 py-1 text-[10px] font-semibold leading-tight text-ink shadow-sm sm:text-xs">
+              {activeImg.endsWith("-studio.jpg")
+                ? "Визуализация модели"
+                : activeImg.startsWith("/images/products/")
+                  ? "Изображение изделия; точное исполнение уточняйте по спецификации"
+                  : "Иллюстрация объекта; не подтверждает комплектацию этой позиции"}
+            </span>
             <span className="absolute right-4 bottom-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-ink/70 ring-1 ring-ink/10 backdrop-blur-md group-hover:bg-ink group-hover:text-white transition-colors">
               <Maximize2 className="h-4 w-4" />
             </span>

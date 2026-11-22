@@ -36,7 +36,7 @@ export const MODULAR_SPECIAL_PRODUCTS: Product[] = [
  badge: "FIBA 3×3 • Гарантия 5 лет",
  featured: true,
  image: "/images/products/tile-ses-elite.jpg",
- gallery: ["/images/products/tile-ses-elite.jpg", "/images/outdoor-court.jpg"],
+ gallery: ["/images/products/tile-ses-elite.jpg"],
  summary:
  "Модульное покрытие 25 × 25 × 2 см с амортизацией 25–35%, решётчатым водоотводом и эластичными замками. Допуски модели: FIBA и FIBA 3×3; гарантия 5 лет.",
  description:
@@ -98,7 +98,7 @@ export const MODULAR_SPECIAL_PRODUCTS: Product[] = [
  certifications: [],
  badge: "30,5×30,5 см • Гарантия 6 лет",
  image: "/images/products/tile-e630.jpg",
- gallery: ["/images/products/tile-e630.jpg", "/images/outdoor-court.jpg"],
+ gallery: ["/images/products/tile-e630.jpg"],
  summary:
  "Модульное покрытие E630 размером 30,5 × 30,5 × 1,6 см с амортизацией 20–25% и гарантией 6 лет. Дополнительно доступны исполнения E620 и S800 с упругими опорами.",
  description:
@@ -157,7 +157,7 @@ export const MODULAR_SPECIAL_PRODUCTS: Product[] = [
  badge: "ITF / FIBA • Гарантия 6 лет",
  featured: true,
  image: "/images/products/tile-flex16.jpg",
- gallery: ["/images/products/tile-flex16.jpg", "/images/tennis-court.jpg"],
+ gallery: ["/images/products/tile-flex16.jpg"],
  summary:
  "Крупноформатная модульная плитка 40 × 40 × 1,58 см с перекрёстной сеткой и мягким эластичным замком (Soft-Connection). Допуски модели : ITF и FIBA; гарантия 6 лет.",
  description:
@@ -217,7 +217,7 @@ export const MODULAR_SPECIAL_PRODUCTS: Product[] = [
  certifications: [],
  badge: "9 цветов • Гарантия 6 лет",
  image: "/images/products/tile-dl.jpg",
- gallery: ["/images/products/tile-dl.jpg", "/images/outdoor-court.jpg"],
+ gallery: ["/images/products/tile-dl.jpg"],
  summary:
  "Модульное покрытие DL размером 30,1 × 30,1 × 1,6 см в палитре из 9 цветов (красный, синий, зелёный, оранжевый, светло-серый, серый, голубой, тёмно-зелёный, жёлтый). Гарантия 6 лет.",
  description:
@@ -277,7 +277,7 @@ export const MODULAR_SPECIAL_PRODUCTS: Product[] = [
  certifications: [],
  badge: "1,38 см • Гарантия 6 лет",
  image: "/images/products/tile-pearl-asterisk.jpg",
- gallery: ["/images/products/tile-pearl-asterisk.jpg", "/images/outdoor-court.jpg"],
+ gallery: ["/images/products/tile-pearl-asterisk.jpg"],
  summary:
  "Модульная плитка Pearl Asterisk размером 30,48 × 30,48 × 1,38 см с ажурной звездообразной матовой поверхностью и упругими арками под модулем. Гарантия — 6 лет.",
  description:
