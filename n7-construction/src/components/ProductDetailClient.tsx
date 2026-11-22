@@ -511,6 +511,28 @@ export function ProductDetailClient({
             </div>
           )}
 
+          {product.subcategory === "padel" && (() => {
+            const turf = swatchGroups.find((group) => group.id === "turf")?.items.find((item) => item.label === selectedSwatches.turf)?.hex ?? "#1D63B8";
+            const frame = swatchGroups.find((group) => group.id === "frame")?.items.find((item) => item.label === selectedSwatches.frame)?.hex ?? "#14181F";
+            return (
+              <div className="overflow-hidden rounded-[24px] bg-white p-4 ring-1 ring-ink/[0.07]">
+                <div className="mb-3 flex items-center justify-between gap-3"><div><h3 className="text-sm font-extrabold text-ink">Предпросмотр сочетания</h3><p className="mt-0.5 text-[10px] text-ink/50">Газон: {selectedSwatches.turf} · Каркас: {selectedSwatches.frame}</p></div><span className="rounded-full bg-canvas px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide text-ink/55">Схема</span></div>
+                <div className="overflow-hidden rounded-2xl bg-[#101820] p-3 sm:p-5">
+                  <svg viewBox="0 0 600 340" role="img" aria-label={`Схематичный предпросмотр падел-корта: газон ${selectedSwatches.turf}, каркас ${selectedSwatches.frame}`} className="h-auto w-full">
+                    <rect x="46" y="35" width="508" height="270" rx="16" fill={frame} opacity="0.9" />
+                    <rect x="61" y="49" width="478" height="242" rx="8" fill={turf} stroke="#d9f2ff" strokeOpacity="0.72" strokeWidth="3" />
+                    <path d="M300 50v240M62 170h476" stroke="#fff" strokeOpacity="0.9" strokeWidth="3" />
+                    <path d="M185 50v240M415 50v240" stroke="#fff" strokeOpacity="0.78" strokeWidth="2" />
+                    <path d="M58 170h484" stroke={frame} strokeWidth="7" />
+                    {[90,150,210,270,330,390,450,510].map((x) => <g key={x}><path d={`M${x} 36v-8`} stroke={frame} strokeWidth="5" strokeLinecap="round"/><path d={`M${x} 304v8`} stroke={frame} strokeWidth="5" strokeLinecap="round"/></g>)}
+                    <text x="300" y="329" textAnchor="middle" fill="#fff" fillOpacity="0.74" fontSize="13" fontFamily="sans-serif">Схематичное цветовое превью · не чертёж и не фото</text>
+                  </svg>
+                </div>
+                <p className="mt-2 text-[10px] leading-relaxed text-ink/45">Цвета на экране приблизительные; наличие и точный оттенок подтвердите перед заказом. Выбранные варианты добавятся в список КП.</p>
+              </div>
+            );
+          })()}
+
           {/* Остров цены, калькулятора площади и кнопок КП */}
           <div className="rounded-[26px] bg-white p-5 ring-1 ring-ink/[0.08] shadow-card space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-4">
