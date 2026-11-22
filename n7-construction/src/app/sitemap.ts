@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/compare", priority: 0.7 },
     { path: "/contacts", priority: 0.85 },
     { path: "/map", priority: 0.6 },
+    { path: "/privacy", priority: 0.3 },
   ];
 
   return [

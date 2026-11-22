@@ -262,6 +262,7 @@ export function ProductDetailClient({
                     key={img}
                     type="button"
                     data-active={active ? "true" : undefined}
+                    aria-label={`Фотография ${i + 1} из ${gallery.length}`}
                     onClick={() => setActiveImgIdx(i)}
                     className={`relative h-16 w-20 shrink-0 overflow-hidden rounded-2xl border-2 bg-white transition-all ${
                       active

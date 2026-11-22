@@ -20,6 +20,7 @@ function FooterLinks({ links }: {links: typeof groups[number]["links"]}) {
 export function Footer() {
   const pathname = usePathname();
   const { liveSettings, openLeadModal } = useStore();
+  const wa = liveSettings.whatsappNumber.replace(/\D/g, "");
 
   if (pathname?.startsWith("/admin")) return null;
 
@@ -28,7 +29,8 @@ export function Footer() {
       liveSettings.email ||
       liveSettings.address ||
       liveSettings.workingHours ||
-      liveSettings.bin
+      liveSettings.bin ||
+      wa
   );
 
   return (
@@ -68,6 +70,17 @@ export function Footer() {
             </nav>
             {hasAnyContact && (
               <div className="mt-5 space-y-2 border-t border-white/10 pt-4 text-xs text-white/75">
+                {wa && (
+                  <a
+                    href={`https://wa.me/${wa}`}
+                    className="flex items-center gap-2 font-semibold text-white hover:text-track"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Phone className="h-3.5 w-3.5 text-track shrink-0" />
+                    WhatsApp: +{wa}
+                  </a>
+                )}
                 {liveSettings.phone && (
                   <a
                     href={`tel:+${liveSettings.phone.replace(/\D/g, "")}`}
@@ -115,8 +128,8 @@ export function Footer() {
             <Link href="/map" className="hover:text-white/75 transition-colors">
               Карта сайта
             </Link>
-            <Link href="/admin" className="hover:text-white/75 transition-colors">
-              Управление
+            <Link href="/privacy" className="hover:text-white/75 transition-colors">
+              Конфиденциальность
             </Link>
           </div>
         </div>

@@ -37,6 +37,7 @@ export default function HtmlSitemapPage() {
               <li><Link href="/compare" className="hover:text-track">Сравнение моделей</Link></li>
               <li><Link href="/cart" className="hover:text-track">Список позиций для КП</Link></li>
               <li><Link href="/contacts" className="hover:text-track">Запрос коммерческого предложения</Link></li>
+              <li><Link href="/privacy" className="hover:text-track">Конфиденциальность и данные</Link></li>
             </ul>
           </div>
 
