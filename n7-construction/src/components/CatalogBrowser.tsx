@@ -24,6 +24,7 @@ import {
 } from "@/data/product-ui";
 import { useStore } from "@/context/StoreContext";
 import { ProductCard } from "@/components/ProductCard";
+import { Reveal } from "@/components/MotionPrimitives";
 
 import { ScrollRail } from "@/components/ScrollRail";
 
@@ -653,7 +654,7 @@ export function CatalogBrowser({
       ) : (
         <>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {shownEntries.map(product => <ProductCard key={product.id} product={product} />)}
+            {shownEntries.map((product, index) => <Reveal key={product.id} delay={(index % 3) * 0.045} className="h-full"><ProductCard product={product} /></Reveal>)}
           </div>
 
           {(remaining > 0 || shownEntries.length > PAGE_STEP) && (

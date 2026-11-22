@@ -54,14 +54,17 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             ]}
           />
 
-          <div className="mb-7 flex flex-wrap items-baseline gap-3">
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.03em] text-ink">
-              {cat.name}
-            </h1>
-            <span className="text-sm font-semibold text-ink/45 tabular-nums">
-              {items.length} поз.
-            </span>
-          </div>
+          <header className="relative mb-7 overflow-hidden rounded-[28px] bg-white p-5 ring-1 ring-ink/[0.08] shadow-card sm:p-8">
+            <div aria-hidden="true" className="absolute right-0 top-0 h-full w-1/3 bg-blueprint-light opacity-40 [mask-image:linear-gradient(to_left,black,transparent)]" />
+            <div className="relative flex flex-wrap items-end justify-between gap-4">
+              <div className="max-w-3xl">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-track">Каталог N7 · направление</p>
+                <h1 className="mt-2 text-3xl font-extrabold tracking-[-0.035em] text-ink sm:text-5xl">{cat.name}</h1>
+                <p className="mt-3 line-clamp-2 max-w-2xl text-sm leading-relaxed text-ink/55">{cat.description}</p>
+              </div>
+              <span className="inline-flex shrink-0 items-center rounded-full bg-canvas px-4 py-2 text-xs font-bold text-ink/65">{items.length} позиций</span>
+            </div>
+          </header>
 
           {cat.id === "lighting" && <LightingBrief />}
           <CatalogBrowser initialCategory={cat.id} />
