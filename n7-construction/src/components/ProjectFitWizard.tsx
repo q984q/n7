@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 
 const OBJECTS = ["Спортивный зал", "Открытый корт", "Поле или стадион", "Другой объект"];
-const NEEDS = ["Покрытие", "Освещение", "Падел-корт", "Пока не знаю"];
+const NEEDS = ["Покрытие", "Освещение", "Пока не знаю"];
 
 export function ProjectFitWizard() {
   const [object, setObject] = useState(OBJECTS[0]);

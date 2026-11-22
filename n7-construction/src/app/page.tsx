@@ -13,11 +13,11 @@ import { Reveal } from "@/components/MotionPrimitives";
 
 export const metadata = buildMetadata({
   title:
-    "N7 CONSTRUCTION — Спортивные покрытия, падел-корты и LED-прожекторы в Казахстане",
+    "N7 CONSTRUCTION — Спортивные покрытия и LED-прожекторы в Казахстане",
   description:
-    "Поставка спортивных покрытий, падел-кортов 20×10 м (PD001–PD008) и 45 моделей светодиодных прожекторов N7 TITAN, VEKTOR, KRON, KORT по всему Казахстану. Образцы и монтаж — по запросу.",
+    "Каталог спортивных покрытий и светодиодных прожекторов N7 для залов, кортов и стадионов в Казахстане.",
   path: "/",
-  image: "/images/padel-court.jpg",
+  image: "/images/indoor-arena.jpg",
 });
 
 const DIRECTION_CARDS = [
@@ -27,14 +27,6 @@ const DIRECTION_CARDS = [
     meta: `Моделей: ${PRODUCTS.filter(p => p.category === "flooring").length}`,
     tags: "Залы, стадионы, уличные корты и бассейны",
     image: "/images/indoor-arena.jpg",
-    style: "photo" as const,
-  },
-  {
-    slug: "infrastructure",
-    title: "Падел-корты",
-    meta: "PD001–PD008",
-    tags: "20 × 10 м · Панорамные, с навесом, классика",
-    image: "/images/padel-canopy.jpg",
     style: "photo" as const,
   },
   {
@@ -74,9 +66,8 @@ export default function HomePage() {
             </span>
 
             <h1 className="n7-enter n7-delay-2 mt-5 text-[32px] sm:text-5xl lg:text-[62px] font-extrabold leading-[1.05] tracking-[-0.03em]">
-              <span className="block">ПОКРЫТИЯ,</span>
-              <span className="block">ПАДЕЛ-КОРТЫ</span>
-              <span className="block text-track">И LED-ОСВЕЩЕНИЕ</span>
+              <span className="block">СПОРТИВНЫЕ</span>
+              <span className="block text-track">ПОКРЫТИЯ И LED-СВЕТ</span>
             </h1>
 
             <p className="n7-enter n7-delay-3 mt-4 text-sm sm:text-lg font-medium text-white/75 max-w-2xl">
@@ -133,7 +124,7 @@ export default function HomePage() {
               <h2 className="mt-2 text-2xl sm:text-4xl font-extrabold tracking-[-0.025em] text-ink">
                 Выберите направление
               </h2>
-              <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink/55">Спортивные покрытия, падел-корты и свет — переходите сразу к нужной группе.</p>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink/55">Спортивные покрытия и LED-освещение — выберите нужную группу каталога.</p>
             </div>
             <Link
               href="/catalog"
