@@ -38,7 +38,7 @@ export function LightingSeriesCard({ models }: { models: Product[] }) {
     <article className="group flex w-full flex-col overflow-hidden rounded-[26px] bg-white ring-1 ring-ink/[0.08] shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:ring-ink/20 hover:shadow-elevated">
       {/* Фото выбранной мощности */}
       <div className="relative aspect-[4/3] overflow-hidden bg-white border-b border-ink/[0.05]">
-        <Link href={`/catalog/${active.slug}`} className="block h-full w-full">
+        <Link href={`/catalog/${active.slug}`} className="relative block h-full w-full">
           <Image
             src={active.image}
             alt={active.name}

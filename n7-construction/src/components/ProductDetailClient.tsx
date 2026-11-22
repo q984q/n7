@@ -37,6 +37,7 @@ import { ScrollRail } from "@/components/ScrollRail";
 import { BrandLogo } from "./BrandLogo";
 import { LightingSeriesComparison } from "./LightingSeriesComparison";
 import { trackProductEvent } from "@/lib/analytics";
+import { QuoteChecklistSection } from "@/components/BuyerBlocks";
 
 export function ProductDetailClient({
   product: initialProduct,
@@ -818,6 +819,8 @@ export function ProductDetailClient({
           </div>
         )}
       </div>
+
+      <div className="-mx-4 sm:-mx-6 lg:-mx-8"><QuoteChecklistSection /></div>
 
       {/* Полноэкранный лайтбокс (увеличение фото) */}
       {lightboxOpen && (

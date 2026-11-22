@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CatalogBrowser } from "@/components/CatalogBrowser";
 import { LeadCaptureSection } from "@/components/LeadCaptureSection";
+import { ProjectFitBlock, QuoteChecklistSection, WhyN7Section } from "@/components/BuyerBlocks";
 
 export const metadata = buildMetadata({
   title:
@@ -62,6 +63,9 @@ export default async function CatalogPage({
         </div>
       </section>
 
+      <WhyN7Section />
+      <QuoteChecklistSection />
+      <ProjectFitBlock />
       <LeadCaptureSection source="Страница каталога" />
     </>
   );

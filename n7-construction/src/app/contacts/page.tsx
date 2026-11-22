@@ -15,6 +15,7 @@ import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LeadCaptureSection } from "@/components/LeadCaptureSection";
 import { FaqSection } from "@/components/WorkAndFaq";
+import { WhyN7Section } from "@/components/BuyerBlocks";
 
 export const dynamic = "force-dynamic";
 
@@ -166,6 +167,7 @@ export default async function ContactsPage() {
           ['Монтаж и документы','Если нужен монтаж, укажите площадь и тип основания. Паспорт модели, сертификаты, гарантию и образцы запросите до оплаты.']
         ].map(([title,body])=><div key={title} className="rounded-2xl bg-white p-5"><h3 className="font-bold">{title}</h3><p className="mt-2 text-sm text-ink-muted">{body}</p></div>)}</div>
       </section>
+      <WhyN7Section />
       <LeadCaptureSection
         title="Подбор под ваш объект"
         subtitle="Оставьте телефон или WhatsApp — можно сразу прикрепить план зала, смету или техническое задание."

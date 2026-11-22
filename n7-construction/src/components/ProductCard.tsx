@@ -34,7 +34,7 @@ export function ProductCard({ product }: { product: Product }) {
           isLighting ? "bg-white border-b border-ink/[0.05]" : "bg-canvas"
         }`}
       >
-        <Link href={`/catalog/${product.slug}`} aria-label={`Открыть: ${product.shortName}`} className="block h-full w-full">
+        <Link href={`/catalog/${product.slug}`} aria-label={`Открыть: ${product.shortName}`} className="relative block h-full w-full">
           <Image
             src={product.image}
             alt={product.name}

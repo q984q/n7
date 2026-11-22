@@ -12,6 +12,7 @@ import { SurfaceXRayLab } from "@/components/SurfaceXRayLab";
 import { FaqSection, HowWeWorkSection } from "@/components/WorkAndFaq";
 import { LeadCaptureSection } from "@/components/LeadCaptureSection";
 import { ScrollRail } from "@/components/ScrollRail";
+import { ProjectFitBlock, QuoteChecklistSection, WhyN7Section } from "@/components/BuyerBlocks";
 
 export const metadata = buildMetadata({
   title:
@@ -189,6 +190,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <WhyN7Section />
+
       {/* 11 линеек с понятными человеку подписями */}
       <section id="groups" className="py-16 sm:py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -267,6 +270,10 @@ export default function HomePage() {
 
       {/* Как мы работаем (4 понятных шага) */}
       <HowWeWorkSection />
+
+      <QuoteChecklistSection />
+
+      <ProjectFitBlock />
 
       {/* Короткие ответы на частые вопросы (свёрнуты по умолчанию) */}
       <FaqSection white />
