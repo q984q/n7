@@ -3,16 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
-import { SUBCATEGORIES } from "@/data/subcategories";
-import { SPORT_FILTERS, SUBCATEGORY_CARD_HINT } from "@/data/product-ui";
 import { SITE_CONFIG } from "@/config/site";
 import { buildMetadata } from "@/lib/seo";
-import { HomeCatalogShowcase } from "@/components/HomeInteractive";
-import { SurfaceXRayLab } from "@/components/SurfaceXRayLab";
 import { FaqSection, HowWeWorkSection } from "@/components/WorkAndFaq";
 import { LeadCaptureSection } from "@/components/LeadCaptureSection";
 import { ScrollRail } from "@/components/ScrollRail";
-import { QuoteChecklistSection, WhyN7Section } from "@/components/BuyerBlocks";
 import { ProjectFitWizard } from "@/components/ProjectFitWizard";
 
 export const metadata = buildMetadata({
@@ -174,114 +169,15 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Быстрый подбор по виду спорта / объекту */}
-          <div className="pt-2">
-            <ScrollRail
-              fadeColor="canvas"
-              trackClassName="flex items-center gap-2 py-0.5"
-              ariaLabel="Быстрый подбор по виду спорта"
-            >
-              <span className="shrink-0 text-xs font-bold text-ink/45 mr-1">
-                Под задачу:
-              </span>
-              {SPORT_FILTERS.map((sf) => (
-                <Link
-                  key={sf.id}
-                  href={`/catalog?sport=${sf.id}`}
-                  className="shrink-0 rounded-full bg-white px-4 py-2 text-xs font-bold text-ink/80 ring-1 ring-ink/[0.08] shadow-sm hover:bg-ink hover:text-white transition-all"
-                >
-                  {sf.label}
-                </Link>
-              ))}
-            </ScrollRail>
-          </div>
         </div>
       </section>
 
-      <WhyN7Section />
-
-      {/* 11 линеек с понятными человеку подписями */}
-      <section id="groups" className="py-16 sm:py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-[-0.025em] text-ink">
-              Линейки
-            </h2>
-            <span className="text-xs font-semibold text-ink/45 tabular-nums">
-              {SUBCATEGORIES.length} групп
-            </span>
-          </div>
-
-          <ScrollRail
-            fadeColor="white"
-            showArrows={false}
-            showProgress
-            snap
-            stepRatio={0.8}
-            trackClassName="flex items-stretch gap-4 pb-1"
-            ariaLabel="Товарные группы каталога"
-          >
-            {SUBCATEGORIES.map((sub) => {
-              const isLed = sub.parentCategory === "lighting";
-              const hint =
-                SUBCATEGORY_CARD_HINT[sub.slug] || sub.keyMetrics[0]?.value;
-              return (
-                <Link
-                  key={sub.slug}
-                  href={`/catalog/sub/${sub.slug}`}
-                  className="group flex w-[74vw] max-w-[280px] sm:w-[272px] shrink-0 snap-start flex-col overflow-hidden rounded-[24px] bg-canvas ring-1 ring-ink/[0.07] transition-all duration-300 hover:-translate-y-0.5 hover:ring-ink/20 hover:shadow-elevated"
-                >
-                  <div
-                    className={`relative aspect-[16/11] overflow-hidden ${
-                      isLed ? "bg-white" : "bg-ink/5"
-                    }`}
-                  >
-                    <Image
-                      src={sub.image}
-                      alt={sub.shortName}
-                      fill
-                      sizes="280px"
-                      className={
-                        isLed
-                          ? "object-contain p-5 transition-transform duration-500 group-hover:scale-105"
-                          : "object-cover transition-transform duration-500 group-hover:scale-105"
-                      }
-                    />
-                  </div>
-                  <div className="flex flex-1 items-end justify-between gap-3 p-4 sm:p-5">
-                    <div className="min-w-0">
-                      <h3 className="text-[15px] font-extrabold tracking-[-0.01em] text-ink group-hover:text-track transition-colors truncate">
-                        {sub.name}
-                      </h3>
-                      {hint && (
-                        <div className="mt-1 text-xs font-medium text-ink/55 truncate">
-                          {hint}
-                        </div>
-                      )}
-                    </div>
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-ink/65 ring-1 ring-ink/[0.08] group-hover:bg-ink group-hover:text-white transition-colors">
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
-          </ScrollRail>
-        </div>
-      </section>
-
-      {/* Витрина карточек */}
-      <HomeCatalogShowcase />
-
-      {/* Интерактивный разрез систем покрытий */}
-      <SurfaceXRayLab />
+      {/* Подбор по задаче — один явный путь вместо повторяющихся витрин */}
+      <ProjectFitWizard />
 
       {/* Как мы работаем (4 понятных шага) */}
       <HowWeWorkSection />
 
-      <QuoteChecklistSection />
-
-      <ProjectFitWizard />
 
       {/* Короткие ответы на частые вопросы (свёрнуты по умолчанию) */}
       <FaqSection white />
