@@ -215,8 +215,6 @@ export function ProductDetailClient({
         <h1 className="mt-5 max-w-5xl text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">{product.shortName}</h1>
         <p className="mt-2 text-ink-muted">{purpose}</p>
       </header>
-      <button type="button" onClick={()=>window.print()} className="no-print inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-bold ring-1 ring-ink/10"><FileText className="h-4 w-4" />Печать / PDF характеристик</button>
-      <button type="button" className="no-print min-h-11 px-4 text-sm font-bold underline" onClick={()=>openLeadModal({title:"Документы и фото модели",source:`Карточка ${product.sku}`,contextSummary:`${product.shortName} · ${product.sku}. Прошу предоставить паспорт производителя и фото реального образца до заказа.`})}>Запросить паспорт и фото образца</button>
       <article className="n7-print-sheet hidden">
         <BrandLogo theme="light"/><p>Техническое приложение к запросу КП</p><h1>{product.name}</h1><p>Арт. {product.sku} · {product.subcategoryLabel}</p>
         <p>{product.summary}</p><dl>{product.specs.map((s,i)=><div key={i}><dt>{s.label}</dt><dd>{s.value}</dd></div>)}</dl>
@@ -728,6 +726,14 @@ export function ProductDetailClient({
                   : "Договор · монтаж по запросу"}
               </span>
             </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 px-1 text-xs font-semibold text-ink/55">
+            <button type="button" onClick={() => window.print()} className="no-print inline-flex min-h-9 items-center gap-1.5 hover:text-track">
+              <FileText className="h-3.5 w-3.5" /> Печать / PDF характеристик
+            </button>
+            <button type="button" className="no-print inline-flex min-h-9 items-center hover:text-track" onClick={() => openLeadModal({ title: "Документы и фото модели", source: `Карточка ${product.sku}`, contextSummary: `${product.shortName} · ${product.sku}. Прошу предоставить паспорт производителя и фото реального образца до заказа.` })}>
+              Запросить паспорт и фото образца
+            </button>
           </div>
         </div>
       </div>
